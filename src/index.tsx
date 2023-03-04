@@ -8,14 +8,14 @@ import lightTheme from './theme/lightTheme';
 const rootElement = document.getElementById('root');
 
 if (!rootElement) {
-  throw new Error("Failed to find the 'root' element in the DOM.");
+	throw new Error("Failed to find the 'root' element in the DOM.");
 }
 
 const root = createRoot(rootElement as HTMLElement);
 
 root.render(
-  <ThemeProvider theme={lightTheme}>
-    <CssBaseline />
-    <App />
-  </ThemeProvider>,
+	<ThemeProvider theme={lightTheme}>
+		<CssBaseline />
+		<App />
+	</ThemeProvider>,
 );
