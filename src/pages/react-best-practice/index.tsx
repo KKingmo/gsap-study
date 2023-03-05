@@ -3,11 +3,11 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { Grid } from '@mui/material';
-import Gsap1 from '../components/gsapGround/Gsap1';
-import Gsap2 from '../components/gsapGround/Gsap2';
-import Gsap3 from '../components/gsapGround/Gsap3';
-import Gsap4 from '../components/gsapGround/Gsap4';
-import Gsap5 from '../components/gsapGround/Gsap5';
+import Gsap1 from '../../components/gsapGround/Gsap1';
+import Gsap2 from '../../components/gsapGround/Gsap2';
+import Gsap3 from '../../components/gsapGround/Gsap3';
+import Gsap4 from '../../components/gsapGround/Gsap4';
+import Gsap5 from '../../components/gsapGround/Gsap5';
 
 interface ListItem {
 	id: string;
@@ -29,7 +29,7 @@ const LIST: ListItem[] = [
 	{ id: 'a12', primary: '12' },
 ];
 
-const GsapGround = () => {
+const Index = () => {
 	const [currentTab, setCurrentTab] = useState<string | null>(null);
 
 	const handleClickListItem = useCallback((name: string) => {
@@ -79,4 +79,4 @@ const GsapGround = () => {
 	);
 };
 
-export default GsapGround;
+export default Index;

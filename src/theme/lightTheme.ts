@@ -4,17 +4,25 @@ const lightTheme = createTheme({
 	palette: {
 		mode: 'light',
 		primary: {
-			main: '#1E88E5',
+			light: '#757ce8',
+			main: '#3f50b5',
+			dark: '#002884',
+			contrastText: '#fff',
 		},
 		secondary: {
-			main: '#1E88E5',
+			light: '#ff7961',
+			main: '#f44336',
+			dark: '#ba000d',
+			contrastText: '#000',
 		},
 		background: {
 			default: '#ffffff',
+			paper: '#f7f7f7',
 		},
 		text: {
 			primary: '#000000',
-			secondary: '#ffffff',
+			secondary: '#252525',
+			disabled: '#858585',
 		},
 	},
 	typography: {
@@ -29,16 +37,6 @@ const lightTheme = createTheme({
 		},
 		subtitle1: {
 			fontSize: '0.9375rem',
-		},
-	},
-	components: {
-		MuiAppBar: {
-			styleOverrides: {
-				root: {
-					backgroundColor: 'rgba(255, 255, 255, 0.1)',
-					backdropFilter: 'blur(5px)',
-				},
-			},
 		},
 	},
 });
