@@ -1,24 +1,37 @@
-import { Container, Grid } from '@mui/material';
-import Aside, { Page } from './Aside/Aside';
-import React from 'react';
+import { Grid } from '@mui/material';
+import React, { useCallback, useEffect } from 'react';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { MENU } from '../App';
 
-type LayoutProps = {
-	pages: Page[];
-	children: React.ReactNode;
-};
+const Layout = () => {
+	const navigate = useNavigate();
 
-const Layout = ({ pages, children }: LayoutProps) => {
+	const handleClickMenu = useCallback(
+		(path: string) => {
+			navigate(path);
+		},
+		[navigate],
+	);
 	return (
-		<Container maxWidth='xl'>
-			<Grid container>
-				<Grid item xs={1}>
-					<Aside pages={pages} />
-				</Grid>
-				<Grid item xs={11}>
-					{children}
-				</Grid>
+		<Grid container spacing={2}>
+			<Grid item xs={12}>
+				{MENU.map(({ path, name, children }, index) => (
+					<div key={`${path}1`}>
+						<button onClick={() => handleClickMenu(path)}>{name}</button>
+						{children?.map(({ path, name, index }) => {
+							return index ? null : (
+								<button key={`${path}2`} onClick={() => handleClickMenu(path)}>
+									{name}
+								</button>
+							);
+						})}
+					</div>
+				))}
 			</Grid>
-		</Container>
+			<Grid item xs={12}>
+				<Outlet />
+			</Grid>
+		</Grid>
 	);
 };
 
