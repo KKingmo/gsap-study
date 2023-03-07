@@ -7,12 +7,7 @@ import lightTheme from './theme/lightTheme';
 import { BrowserRouter } from 'react-router-dom';
 
 const rootElement = document.getElementById('root');
-
-if (!rootElement) {
-	throw new Error("Failed to find the 'root' element in the DOM.");
-}
-
-const root = createRoot(rootElement as HTMLElement);
+const root = createRoot(rootElement!);
 
 root.render(
 	<ThemeProvider theme={lightTheme}>
