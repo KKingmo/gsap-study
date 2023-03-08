@@ -33,6 +33,16 @@ export const MENU: MenuItem[] = [
 				name: 'Animating on interaction',
 				element: <Pages />,
 			},
+			{
+				path: '/react-basics/2',
+				name: 'Triggering animation on mount - useLayoutEffect()',
+				element: <Pages />,
+			},
+			{
+				path: '/react-basics/3',
+				name: 'Targeting elements with Refs',
+				element: <Pages />,
+			},
 		],
 	},
 	// {

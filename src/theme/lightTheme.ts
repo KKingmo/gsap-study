@@ -28,15 +28,18 @@ const lightTheme = createTheme({
 	typography: {
 		fontSize: 16,
 		h1: {
-			fontSize: '3.75rem',
+			fontSize: '2rem',
 			fontWeight: 'bold',
 		},
 		h2: {
-			fontSize: '2rem',
+			fontSize: '1.25rem',
 			fontWeight: 'bold',
 		},
 		subtitle1: {
 			fontSize: '0.9375rem',
+		},
+		body2: {
+			whiteSpace: 'pre-wrap',
 		},
 	},
 });

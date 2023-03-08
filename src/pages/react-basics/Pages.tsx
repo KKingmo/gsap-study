@@ -1,6 +1,8 @@
 import { useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import AnimatingOnInteraction from '../../components/react-basics/AnimatingOnInteraction';
+import TriggeringAnimationOnMount from '../../components/react-basics/TriggeringAnimationOnMount';
+import TargetingElementsWithRefs from '../../components/react-basics/TargetingElementsWithRefs';
 
 const Pages = () => {
 	const location = useLocation();
@@ -11,7 +13,9 @@ const Pages = () => {
 			case '1':
 				return <AnimatingOnInteraction />;
 			case '2':
-				return <div>2</div>;
+				return <TriggeringAnimationOnMount />;
+			case '3':
+				return <TargetingElementsWithRefs />;
 			default:
 				return <div>404</div>;
 		}
