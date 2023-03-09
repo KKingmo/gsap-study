@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import AnimatingOnInteraction from '../../components/react-basics/AnimatingOnInteraction';
 import TriggeringAnimationOnMount from '../../components/react-basics/TriggeringAnimationOnMount';
 import TargetingElementsWithRefs from '../../components/react-basics/TargetingElementsWithRefs';
+import GsapContext from '../../components/react-basics/GsapContext';
 
 const Pages = () => {
 	const location = useLocation();
@@ -16,6 +17,8 @@ const Pages = () => {
 				return <TriggeringAnimationOnMount />;
 			case '3':
 				return <TargetingElementsWithRefs />;
+			case '4':
+				return <GsapContext />;
 			default:
 				return <div>404</div>;
 		}

@@ -9,7 +9,7 @@ type CodeBlockProps = {
 
 const CodeBlock = ({ language, codeString }: CodeBlockProps) => {
 	return (
-		<Box sx={{ position: 'relative', width: '100%' }}>
+		<Box sx={{ position: 'relative', width: '100%' }} maxWidth={'xl'}>
 			<Box
 				sx={{
 					position: 'absolute',

@@ -1,6 +1,6 @@
-import { Box, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import CodeBlock from '../common/CodeBlock';
-import InfoPaper from '../common/InfoPaper';
+import PageLayout from '../../layout/PageLayout';
 
 const CODESTRING = [
 	`const boxRef = useRef();
@@ -25,14 +25,7 @@ return (
 
 const TargetingElementsWithRefs = () => {
 	return (
-		<Box
-			sx={{
-				display: 'flex',
-				flexDirection: 'column',
-				alignItems: 'flex-start',
-				justifyContent: 'center',
-				gap: '2rem',
-			}}>
+		<PageLayout>
 			<Typography variant='h1'>Ref로 요소 타겟팅</Typography>
 			<Typography variant='body2'>
 				{
@@ -48,7 +41,7 @@ const TargetingElementsWithRefs = () => {
 					'\n\n그렇다면 텍스트 선택자의 유연성과 Ref의 보안을 어떻게 활용할 수 있을까요?\n\ngsap.context()가 좋은 해결책이 될 수 있습니다.'
 				}
 			</Typography>
-		</Box>
+		</PageLayout>
 	);
 };
 

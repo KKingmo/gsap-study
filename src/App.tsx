@@ -43,6 +43,11 @@ export const MENU: MenuItem[] = [
 				name: 'Targeting elements with Refs',
 				element: <Pages />,
 			},
+			{
+				path: '/react-basics/4',
+				name: 'gsap.context() is your best friend!',
+				element: <Pages />,
+			},
 		],
 	},
 	// {
@@ -83,7 +88,7 @@ export const ROUTES: RouteObject[] = [
 const App: React.FC = () => {
 	const element = useRoutes(ROUTES);
 
-	return <Container maxWidth='xl'>{element}</Container>;
+	return <>{element}</>;
 };
 
 export default App;

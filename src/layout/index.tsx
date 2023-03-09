@@ -1,6 +1,7 @@
 import {
 	Box,
 	Breadcrumbs,
+	Container,
 	Divider,
 	Drawer,
 	IconButton,
@@ -103,6 +104,19 @@ const Layout = () => {
 
 	const renderBreadCrumbs = useCallback(() => {
 		const pathnames = location.pathname.split('/').filter((x) => x);
+
+		const pathToNameMap = MENU.reduce((acc, { path, name, children }) => {
+			acc[path] = name;
+
+			if (children) {
+				children.forEach(({ path, name }) => {
+					acc[path] = name;
+				});
+			}
+
+			return acc;
+		}, {} as { [key: string]: string });
+
 		return (
 			<Breadcrumbs
 				separator={<NavigateNextIcon fontSize='small' />}
@@ -112,9 +126,7 @@ const Layout = () => {
 				{pathnames.map((value, index) => {
 					const last = index === pathnames.length - 1;
 					const to = `/${pathnames.slice(0, index + 1).join('/')}`;
-
-					const menuItem = MENU.find((menu) => menu.path === to);
-					const name = menuItem?.name || value;
+					const name = pathToNameMap[to];
 
 					return last ? (
 						<Typography key={to}>{name}</Typography>
@@ -202,8 +214,10 @@ const Layout = () => {
 				</List>
 			</Drawer>
 			<Main open={menuOpen}>
-				<DrawerHeader />
-				<Outlet />
+				<Container maxWidth='xl'>
+					<DrawerHeader />
+					<Outlet />
+				</Container>
 			</Main>
 		</Box>
 	);
