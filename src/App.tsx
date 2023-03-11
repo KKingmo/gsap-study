@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react';
-import { Container } from '@mui/material';
 import { RouteObject, useRoutes } from 'react-router-dom';
 import Layout from './layout';
 import Home from './pages';
@@ -46,6 +45,11 @@ export const MENU: MenuItem[] = [
 			{
 				path: '/react-basics/4',
 				name: 'gsap.context() is your best friend!',
+				element: <Pages />,
+			},
+			{
+				path: '/react-basics/5',
+				name: 'gsap.context() - Cleaning Up',
 				element: <Pages />,
 			},
 		],

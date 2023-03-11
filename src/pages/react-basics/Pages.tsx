@@ -4,6 +4,7 @@ import AnimatingOnInteraction from '../../components/react-basics/AnimatingOnInt
 import TriggeringAnimationOnMount from '../../components/react-basics/TriggeringAnimationOnMount';
 import TargetingElementsWithRefs from '../../components/react-basics/TargetingElementsWithRefs';
 import GsapContext from '../../components/react-basics/GsapContext';
+import CleaningUp from '../../components/react-basics/CleaningUp';
 
 const Pages = () => {
 	const location = useLocation();
@@ -19,6 +20,8 @@ const Pages = () => {
 				return <TargetingElementsWithRefs />;
 			case '4':
 				return <GsapContext />;
+			case '5':
+				return <CleaningUp />;
 			default:
 				return <div>404</div>;
 		}
