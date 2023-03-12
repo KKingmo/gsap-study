@@ -52,6 +52,11 @@ export const MENU: MenuItem[] = [
 				name: 'gsap.context() - Cleaning Up',
 				element: <Pages />,
 			},
+			{
+				path: '/react-basics/6',
+				name: 'Reusing components',
+				element: <Pages />,
+			},
 		],
 	},
 	// {

@@ -5,6 +5,7 @@ import TriggeringAnimationOnMount from '../../components/react-basics/Triggering
 import TargetingElementsWithRefs from '../../components/react-basics/TargetingElementsWithRefs';
 import GsapContext from '../../components/react-basics/GsapContext';
 import CleaningUp from '../../components/react-basics/CleaningUp';
+import ReusingComponents from '../../components/react-basics/ReusingComponents';
 
 const Pages = () => {
 	const location = useLocation();
@@ -22,6 +23,8 @@ const Pages = () => {
 				return <GsapContext />;
 			case '5':
 				return <CleaningUp />;
+			case '6':
+				return <ReusingComponents />;
 			default:
 				return <div>404</div>;
 		}
