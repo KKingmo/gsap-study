@@ -6,6 +6,7 @@ import TargetingElementsWithRefs from '../../components/react-basics/TargetingEl
 import GsapContext from '../../components/react-basics/GsapContext';
 import CleaningUp from '../../components/react-basics/CleaningUp';
 import ReusingComponents from '../../components/react-basics/ReusingComponents';
+import UsingTimelines from '../../components/react-basics/UsingTimelines';
 
 const Pages = () => {
 	const location = useLocation();
@@ -25,6 +26,8 @@ const Pages = () => {
 				return <CleaningUp />;
 			case '6':
 				return <ReusingComponents />;
+			case '7':
+				return <UsingTimelines />;
 			default:
 				return <div>404</div>;
 		}

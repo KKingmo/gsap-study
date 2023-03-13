@@ -57,6 +57,11 @@ export const MENU: MenuItem[] = [
 				name: 'Reusing components',
 				element: <Pages />,
 			},
+			{
+				path: '/react-basics/7',
+				name: 'Creating and controlling timelines',
+				element: <Pages />,
+			},
 		],
 	},
 	// {

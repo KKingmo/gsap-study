@@ -149,7 +149,11 @@ const GsapContext = () => {
 			</Comp>
 			<Typography variant='body2'>{`GSAP 관련 코드에서 ".my-class"와 같은 텍스트 선택자를 사용하여 요소를 지정하는 것은 각각의 애니메이션 대상 요소에 ref를 생성하는 것보다 훨씬 간편합니다.\n그래서 일반적으로 gsap.context() 내에서 스코프가 지정된 선택자를 사용하는 것을 권장합니다.\n\n그러나 중요한 예외 사항이 있습니다.\n바로 컴포넌트를 중첩하고 있고, 선택자가 자식 컴포넌트의 요소를 잡아내는 것을 방지하고 싶을 때입니다.\n\n이 예제에서는 메인 앱에서 두 가지 요소가 애니메이션되고 있습니다.\n하나는 스코프가 지정된 클래스 선택자로 지정된 박스이고, 다른 하나는 Ref로 지정된 원입니다.\n또한, 앱 안에는 또 다른 컴포넌트가 중첩되어 있습니다.\n이 중첩된 요소는 '.box'라는 클래스명을 가진 자식 요소도 가지고 있습니다.\n이 중첩된 박스 요소는 앱의 effect 애니메이션에 의해 대상으로 잡히는 것을 볼 수 있습니다.\n반면에, Ref로 지정된 중첩된 원은 애니메이션을 상속받지 않고 있습니다.`}</Typography>
 			<Typography variant='body2'>{`즉 Ref로 지정된 스코프에 해당하는 '.box'클래스만 대상으로 잡습니다.\n중첩된 요소까지 뒤져가면서 '.box'클래스를 찾아 대상으로 잡지는 않는다는 점!`}</Typography>
-			<CodeBlock language='tsx' codeString={CODESTRING[1]} />
+			<CodeBlock
+				language='tsx'
+				codeString={CODESTRING[1]}
+				title={'DOCS에서 제공한 예시코드'}
+			/>
 		</PageLayout>
 	);
 };

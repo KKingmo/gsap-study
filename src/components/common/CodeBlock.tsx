@@ -5,9 +5,10 @@ import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 type CodeBlockProps = {
 	language: string;
 	codeString: string;
+	title?: string;
 };
 
-const CodeBlock = ({ language, codeString }: CodeBlockProps) => {
+const CodeBlock = ({ language, codeString, title }: CodeBlockProps) => {
 	return (
 		<Box sx={{ position: 'relative', width: '100%' }} maxWidth={'xl'}>
 			<Box
@@ -21,6 +22,7 @@ const CodeBlock = ({ language, codeString }: CodeBlockProps) => {
 					color: 'white',
 					fontSize: '0.75rem',
 				}}>
+				{title && `${title} - `}
 				{language.toUpperCase()}
 			</Box>
 			<SyntaxHighlighter language={language} style={vscDarkPlus}>

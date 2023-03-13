@@ -1,11 +1,9 @@
-import { Box, Button, Typography, styled } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
+import { ReactNode, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
 import CodeBlock from '../common/CodeBlock';
 import PageLayout from '../../layout/PageLayout';
 import InfoPaper from '../common/InfoPaper';
-import { ReactNode, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-
-console.clear();
 
 const CODESTRING = [
 	`const { useEffect, useLayoutEffect, useRef, useState } = React;
@@ -110,7 +108,8 @@ const ReusingComponents = () => {
 	const [reversed, setReversed] = useState<boolean>(false);
 	const app = useRef<HTMLDivElement>(null);
 	// store the timeline in a ref.
-	const tl = useRef<any | null>(null);
+	const tl = useRef(gsap.timeline());
+	console.clear();
 
 	useLayoutEffect(() => {
 		const ctx = gsap.context(() => {
@@ -157,7 +156,11 @@ const ReusingComponents = () => {
 				{`React는 클래스를 스타일링에만 사용하고 데이터 어트리뷰트를 애니메이션과 같은 JS 기능을 위한 엘리먼트를 타겟팅하는 데에만 사용하도록 권장합니다.\n이 글에서는 더 일반적으로 이해되는 클래스를 사용하겠습니다.`}
 			</InfoPaper>
 
-			<CodeBlock language='tsx' codeString={CODESTRING[0]} />
+			<CodeBlock
+				language='tsx'
+				codeString={CODESTRING[0]}
+				title={'DOCS에서 제공한 예시코드'}
+			/>
 		</PageLayout>
 	);
 };
