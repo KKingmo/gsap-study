@@ -7,6 +7,7 @@ import GsapContext from '../../components/react-basics/GsapContext';
 import CleaningUp from '../../components/react-basics/CleaningUp';
 import ReusingComponents from '../../components/react-basics/ReusingComponents';
 import UsingTimelines from '../../components/react-basics/UsingTimelines';
+import ControllingWithCreatingAnimation from '../../components/react-basics/ControllingWithCreatingAnimation';
 
 const Pages = () => {
 	const location = useLocation();
@@ -28,8 +29,8 @@ const Pages = () => {
 				return <ReusingComponents />;
 			case '7':
 				return <UsingTimelines />;
-			default:
-				return <div>404</div>;
+			case '8':
+				return <ControllingWithCreatingAnimation />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;

@@ -62,6 +62,11 @@ export const MENU: MenuItem[] = [
 				name: 'Creating and controlling timelines',
 				element: <Pages />,
 			},
+			{
+				path: '/react-basics/8',
+				name: 'Controlling when React creates our animation',
+				element: <Pages />,
+			},
 		],
 	},
 	// {
