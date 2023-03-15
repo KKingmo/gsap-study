@@ -108,7 +108,7 @@ const ReusingComponents = () => {
 	const [reversed, setReversed] = useState<boolean>(false);
 	const app = useRef<HTMLDivElement>(null);
 	// store the timeline in a ref.
-	const tl = useRef(gsap.timeline());
+	const tl = useRef<gsap.core.Timeline>(gsap.timeline());
 	console.clear();
 
 	useLayoutEffect(() => {

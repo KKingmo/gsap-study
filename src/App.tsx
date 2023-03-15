@@ -67,6 +67,11 @@ export const MENU: MenuItem[] = [
 				name: 'Controlling when React creates our animation',
 				element: <Pages />,
 			},
+			{
+				path: '/react-basics/9',
+				name: 'Reacting to changes in state',
+				element: <Pages />,
+			},
 		],
 	},
 	// {

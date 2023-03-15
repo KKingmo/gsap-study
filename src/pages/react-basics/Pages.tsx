@@ -8,6 +8,7 @@ import CleaningUp from '../../components/react-basics/CleaningUp';
 import ReusingComponents from '../../components/react-basics/ReusingComponents';
 import UsingTimelines from '../../components/react-basics/UsingTimelines';
 import ControllingWithCreatingAnimation from '../../components/react-basics/ControllingWithCreatingAnimation';
+import ReactingToChangesInState from '../../components/react-basics/ReactingToChangesInState';
 
 const Pages = () => {
 	const location = useLocation();
@@ -31,6 +32,8 @@ const Pages = () => {
 				return <UsingTimelines />;
 			case '8':
 				return <ControllingWithCreatingAnimation />;
+			case '9':
+				return <ReactingToChangesInState />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;
