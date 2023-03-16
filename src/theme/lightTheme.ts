@@ -32,7 +32,11 @@ const lightTheme = createTheme({
 			fontWeight: 'bold',
 		},
 		h2: {
-			fontSize: '1.25rem',
+			fontSize: '1.5rem',
+			fontWeight: 'bold',
+		},
+		h3: {
+			fontSize: '1.2rem',
 			fontWeight: 'bold',
 		},
 		subtitle1: {

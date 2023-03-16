@@ -1,6 +1,6 @@
 # GSAP Practice
 - [GSAP Practice](#gsap-practice)
-  - [GSAP DOCS 파먹기](#gsap-docs-파먹기)
+  - [GSAP DOCS 파먹기 - 참고자료](#gsap-docs-파먹기---참고자료)
     - [GSAP + React Basics](#gsap--react-basics)
     - [Started guide](#started-guide)
     - [중요한 개념 씹어먹기 1 - Tween](#중요한-개념-씹어먹기-1---tween)
@@ -10,7 +10,7 @@
 
 ---
 
-## GSAP DOCS 파먹기
+## GSAP DOCS 파먹기 - 참고자료
 
 ### [GSAP + React Basics](https://greensock.com/react-basics/)
 

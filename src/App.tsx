@@ -3,7 +3,9 @@ import { RouteObject, useRoutes } from 'react-router-dom';
 import Layout from './layout';
 import Home from './pages';
 import ReactBasics from './pages/react-basics';
-import Pages from './pages/react-basics/Pages';
+import GsapBasics from './pages/gsap-basics';
+import ReactBasicsPages from './pages/react-basics/Pages';
+import GsapBasicsPages from './pages/gsap-basics/Pages';
 
 interface MenuItem {
 	path: string;
@@ -30,65 +32,69 @@ export const MENU: MenuItem[] = [
 			{
 				path: '/react-basics/1',
 				name: 'Animating on interaction',
-				element: <Pages />,
+				element: <ReactBasicsPages />,
 			},
 			{
 				path: '/react-basics/2',
 				name: 'Triggering animation on mount - useLayoutEffect()',
-				element: <Pages />,
+				element: <ReactBasicsPages />,
 			},
 			{
 				path: '/react-basics/3',
 				name: 'Targeting elements with Refs',
-				element: <Pages />,
+				element: <ReactBasicsPages />,
 			},
 			{
 				path: '/react-basics/4',
 				name: 'gsap.context() is your best friend!',
-				element: <Pages />,
+				element: <ReactBasicsPages />,
 			},
 			{
 				path: '/react-basics/5',
 				name: 'gsap.context() - Cleaning Up',
-				element: <Pages />,
+				element: <ReactBasicsPages />,
 			},
 			{
 				path: '/react-basics/6',
 				name: 'Reusing components',
-				element: <Pages />,
+				element: <ReactBasicsPages />,
 			},
 			{
 				path: '/react-basics/7',
 				name: 'Creating and controlling timelines',
-				element: <Pages />,
+				element: <ReactBasicsPages />,
 			},
 			{
 				path: '/react-basics/8',
 				name: 'Controlling when React creates our animation',
-				element: <Pages />,
+				element: <ReactBasicsPages />,
 			},
 			{
 				path: '/react-basics/9',
 				name: 'Reacting to changes in state',
-				element: <Pages />,
+				element: <ReactBasicsPages />,
 			},
 		],
 	},
-	// {
-	// 	path: '/start-guide',
-	// 	name: 'Started guide',
-	// 	children: [
-	// 		{
-	// 			path: '/start-guide',
-	// 			name: 'Started guide',
-	// 			element: <div />,
-	// 			index: true,
-	// 		},
-	// 		{ path: '/start-guide/1', name: '1', element: <div /> },
-	// 		{ path: '/start-guide/2', name: '2', element: <div /> },
-	// 		{ path: '/start-guide/3', name: '3', element: <div /> },
-	// 	],
-	// },
+	{
+		path: '/gsap-basics',
+		name: 'GSAP 제대로 파고들기',
+		children: [
+			{
+				path: '/gsap-basics',
+				name: 'GSAP 제대로 파고들기',
+				element: <GsapBasics />,
+				index: true,
+			},
+			{
+				path: '/gsap-basics/1',
+				name: 'Basic Tween - GSAP Object',
+				element: <GsapBasicsPages />,
+			},
+			{ path: '/gsap-basics/2', name: '2', element: <GsapBasicsPages /> },
+			{ path: '/gsap-basics/3', name: '3', element: <GsapBasicsPages /> },
+		],
+	},
 ];
 
 export const ROUTES: RouteObject[] = [
