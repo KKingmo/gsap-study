@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import GsapObject from '../../components/gsap-basics/GsapObject';
 import BasicTweening from '../../components/gsap-basics/BasicTweening';
+import FromFromTo from '../../components/gsap-basics/FromFromTo';
 
 const Pages = () => {
 	const location = useLocation();
@@ -14,7 +15,7 @@ const Pages = () => {
 			case '2':
 				return <BasicTweening />;
 			case '3':
-				return <div />;
+				return <FromFromTo />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;

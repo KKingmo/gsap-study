@@ -92,7 +92,7 @@ export const MENU: MenuItem[] = [
 				element: <GsapBasicsPages />,
 			},
 			{ path: '/gsap-basics/2', name: '기초 트위닝', element: <GsapBasicsPages /> },
-			{ path: '/gsap-basics/3', name: '3', element: <GsapBasicsPages /> },
+			{ path: '/gsap-basics/3', name: 'from()과 fromTo()', element: <GsapBasicsPages /> },
 		],
 	},
 ];
