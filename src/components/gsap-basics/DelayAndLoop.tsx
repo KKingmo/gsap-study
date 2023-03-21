@@ -7,33 +7,7 @@ import AnimatedBox from '../common/AnimatedBox';
 import CollapsibleBox from '../common/CollapsibleBox';
 import InfoPaper from '../common/InfoPaper';
 
-const CODESTRING = [
-	`/**
-  * Creates a tween coming FROM the given values.
-  *
-  * gsap.from(".class", {x: 100});
-  *
-  * @param {TweenTarget} targets
-  * @param {TweenVars} vars
-  * @returns {Tween} Tween instance
-  * @memberof gsap
-  * @link https://greensock.com/docs/v3/GSAP/gsap.from()
-  */
- function from(targets: TweenTarget, vars: TweenVars): core.Tween;`,
-	`/**
- * Creates a tween coming FROM the first set of values going TO the second set of values.
- *
- * gsap.fromTo(".class", {x: 0}, {x: 100});
- *
- * @param {TweenTarget} targets
- * @param {TweenVars} fromVars
- * @param {TweenVars} toVars
- * @returns {Tween} Tween instance
- * @memberof gsap
- * @link https://greensock.com/docs/v3/GSAP/gsap.fromTo()
- */
-function fromTo(targets: TweenTarget, fromVars: TweenVars, toVars: TweenVars): core.Tween;`,
-];
+const CODESTRING = [``];
 
 const DelayAndLoop = () => {
 	const tweenRef = useRef<HTMLDivElement>(null);

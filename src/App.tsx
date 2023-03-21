@@ -94,6 +94,7 @@ export const MENU: MenuItem[] = [
 			{ path: '/gsap-basics/2', name: '기초 트위닝', element: <GsapBasicsPages /> },
 			{ path: '/gsap-basics/3', name: 'from()과 fromTo()', element: <GsapBasicsPages /> },
 			{ path: '/gsap-basics/4', name: '지연과 반복', element: <GsapBasicsPages /> },
+			{ path: '/gsap-basics/5', name: '가속도', element: <GsapBasicsPages /> },
 		],
 	},
 ];
