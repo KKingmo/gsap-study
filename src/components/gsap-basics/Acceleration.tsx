@@ -4,7 +4,6 @@ import { gsap } from 'gsap';
 import CodeBlock from '../common/CodeBlock';
 import PageLayout from '../../layout/PageLayout';
 import AnimatedBox from '../common/AnimatedBox';
-import CollapsibleBox from '../common/CollapsibleBox';
 import InfoPaper from '../common/InfoPaper';
 
 const CODESTRING = [

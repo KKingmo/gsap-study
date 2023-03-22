@@ -5,6 +5,7 @@ import BasicTweening from '../../components/gsap-basics/BasicTweening';
 import FromFromTo from '../../components/gsap-basics/FromFromTo';
 import DelayAndLoop from '../../components/gsap-basics/DelayAndLoop';
 import Acceleration from '../../components/gsap-basics/Acceleration';
+import Staggers from '../../components/gsap-basics/Staggers';
 
 const Pages = () => {
 	const location = useLocation();
@@ -22,6 +23,8 @@ const Pages = () => {
 				return <DelayAndLoop />;
 			case '5':
 				return <Acceleration />;
+			case '6':
+				return <Staggers />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;
