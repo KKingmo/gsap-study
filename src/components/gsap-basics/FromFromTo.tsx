@@ -53,7 +53,7 @@ const FromFromTo = () => {
 					x: 400,
 					y: 0,
 					backgroundColor: '#0000ff',
-					scale: 2,
+					scale: 1.5,
 					opacity: 1,
 					duration: 2,
 				},
@@ -98,7 +98,7 @@ const FromFromTo = () => {
 				title={
 					<Typography variant='body2'>
 						{
-							'gsap.from() 메서드는 지정한 값에서 부터 지정한 값으로 애니메이션을 적용합니다.'
+							'gsap.fromTo() 메서드는 지정한 값에서 부터 지정한 값으로 애니메이션을 적용합니다.'
 						}
 					</Typography>
 				}>

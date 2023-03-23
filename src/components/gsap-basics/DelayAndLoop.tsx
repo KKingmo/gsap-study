@@ -1,13 +1,20 @@
 import { Box, Divider, Typography } from '@mui/material';
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import CodeBlock from '../common/CodeBlock';
 import PageLayout from '../../layout/PageLayout';
 import AnimatedBox from '../common/AnimatedBox';
-import CollapsibleBox from '../common/CollapsibleBox';
 import InfoPaper from '../common/InfoPaper';
+import CodeBlock from '../common/CodeBlock';
 
-const CODESTRING = [``];
+const CODESTRING = [
+	`gsap.to('.green', {
+  x: 400,
+  repeat: -1,
+  yoyo: true,
+  repeatDelay: 1,
+  duration: 0.5,
+});`,
+];
 
 const DelayAndLoop = () => {
 	const tweenRef = useRef<HTMLDivElement>(null);
@@ -16,7 +23,7 @@ const DelayAndLoop = () => {
 		const ctx = gsap.context(() => {
 			// target the element with a class of "green" - rotate and move TO 100px to the left over the course of 1 second.
 			gsap.to('.green', {
-				xPercent: 400,
+				x: 400,
 				repeat: -1,
 				yoyo: true,
 				repeatDelay: 1,
@@ -53,15 +60,7 @@ const DelayAndLoop = () => {
 					'delay: 애니메이션이 시작되기 전에 지연시간을 지정합니다.\n\nrepeat: 애니메이션이 몇번 반복되어야 하는지를 지정합니다.\n\nyoyo: true 로 설정하면 애니메이션이 앞뒤로 재생됩니다.\n\nrepeatDelay: 각 반복 사이에 발생하는 지연시간을 지정합니다. \n\n무한 반복은 reapt: -1 을 설정하면 애니메이션이 무한 반복됩니다.\n\nyoyo속성은 reapt 설정이 들어있어야 사용 가능 합니다.'
 				}
 			</InfoPaper>
-			<CollapsibleBox
-				defaultExpanded
-				title={
-					<Typography variant='body2'>
-						{'gsap.from() 메서드는 지정한 값에서 부터 원래의 값으로 애니메이션 됩니다.'}
-					</Typography>
-				}>
-				<CodeBlock language='tsx' codeString={CODESTRING[0]} />
-			</CollapsibleBox>
+			<CodeBlock language='tsx' codeString={CODESTRING[0]} />
 			<Divider flexItem />
 		</PageLayout>
 	);
