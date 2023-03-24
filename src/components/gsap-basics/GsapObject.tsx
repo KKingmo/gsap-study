@@ -183,18 +183,18 @@ const GsapObject = () => {
 	useLayoutEffect(() => {
 		if (timelineRef.current === null) return;
 		const offsetWidth = timelineRef.current.offsetWidth;
+		const ctx = gsap.context(() => {
+			tl.current = gsap.to('.tween', {
+				duration: 4,
+				x: () => offsetWidth, // animate by the px width of the nav
+				xPercent: -100, // offset by the width of the box
+				rotation: 360,
+				ease: 'none',
+				paused: true,
+			});
+		}, timelineRef);
 
-		tl.current = gsap.to('.tween', {
-			duration: 4,
-			x: () => offsetWidth, // animate by the px width of the nav
-			xPercent: -100, // offset by the width of the box
-			rotation: 360,
-			ease: 'none',
-			paused: true,
-		});
-		return () => {
-			tl.current.progress(0).kill();
-		};
+		return () => ctx.revert();
 	}, []);
 
 	return (
