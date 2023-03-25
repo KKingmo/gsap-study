@@ -1,12 +1,13 @@
 import { useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
-import GsapObject from '../../components/gsap-basics/GsapObject';
-import BasicTweening from '../../components/gsap-basics/BasicTweening';
-import FromFromTo from '../../components/gsap-basics/FromFromTo';
-import DelayAndLoop from '../../components/gsap-basics/DelayAndLoop';
-import Acceleration from '../../components/gsap-basics/Acceleration';
-import Staggers from '../../components/gsap-basics/Staggers';
-import TweenControl from '../../components/gsap-basics/TweenControl';
+import GsapObject from '../../components/basic-tween/GsapObject';
+import BasicTweening from '../../components/basic-tween/BasicTweening';
+import FromFromTo from '../../components/basic-tween/FromFromTo';
+import DelayAndLoop from '../../components/basic-tween/DelayAndLoop';
+import Acceleration from '../../components/basic-tween/Acceleration';
+import Staggers from '../../components/basic-tween/Staggers';
+import TweenControl from '../../components/basic-tween/TweenControl';
+import BugInFromTween from '../../components/basic-tween/BugInFromTween';
 
 const Pages = () => {
 	const location = useLocation();
@@ -28,6 +29,8 @@ const Pages = () => {
 				return <Staggers />;
 			case '7':
 				return <TweenControl />;
+			case '8':
+				return <BugInFromTween />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;

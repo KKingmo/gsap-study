@@ -7,9 +7,17 @@ type AnimatedBoxProps = {
 	sx?: SxProps;
 	size?: string | number;
 	onClick?: MouseEventHandler<HTMLDivElement>;
+	onMouseEnter?: () => void;
 };
 
-const AnimatedBox = ({ className, children, sx, size, onClick }: AnimatedBoxProps) => {
+const AnimatedBox = ({
+	className,
+	children,
+	sx,
+	size,
+	onMouseEnter,
+	onClick,
+}: AnimatedBoxProps) => {
 	const sizeStyle = useCallback(() => {
 		switch (size) {
 			case 'xs':
@@ -29,7 +37,11 @@ const AnimatedBox = ({ className, children, sx, size, onClick }: AnimatedBoxProp
 		}
 	}, [size]);
 	return (
-		<StyledBox className={className} onClick={onClick} sx={{ ...sizeStyle(), ...sx }}>
+		<StyledBox
+			className={className}
+			onMouseEnter={onMouseEnter}
+			onClick={onClick}
+			sx={{ ...sizeStyle(), ...sx }}>
 			{children}
 		</StyledBox>
 	);

@@ -90,9 +90,8 @@ const TweenControl = () => {
 					'처음 자동으로 재생되지 않도록 하려면 paused 속성을 true로 설정하여 자동재생을 막을 수 있습니다.\n\n아래는 Tween 컨트롤 예시 입니다.'
 				}
 			</Typography>
-			<Divider flexItem />
-
 			<CodeBlock language='tsx' codeString={CODESTRING[0]} />
+			<Divider flexItem />
 		</PageLayout>
 	);
 };

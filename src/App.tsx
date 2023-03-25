@@ -3,9 +3,9 @@ import { RouteObject, useRoutes } from 'react-router-dom';
 import Layout from './layout';
 import Home from './pages';
 import ReactBasics from './pages/react-basics';
-import GsapBasics from './pages/gsap-basics';
+import GsapBasics from './pages/basic-tween';
 import ReactBasicsPages from './pages/react-basics/Pages';
-import GsapBasicsPages from './pages/gsap-basics/Pages';
+import BasicTweenPages from './pages/basic-tween/Pages';
 
 interface MenuItem {
 	path: string;
@@ -77,26 +77,27 @@ export const MENU: MenuItem[] = [
 		],
 	},
 	{
-		path: '/gsap-basics',
-		name: 'GSAP 제대로 파고들기',
+		path: '/basic-tween',
+		name: 'Basic Tween',
 		children: [
 			{
-				path: '/gsap-basics',
-				name: 'GSAP 제대로 파고들기',
+				path: '/basic-tween',
+				name: 'Basic Tween',
 				element: <GsapBasics />,
 				index: true,
 			},
 			{
-				path: '/gsap-basics/1',
-				name: 'Basic Tween - GSAP Object',
-				element: <GsapBasicsPages />,
+				path: '/basic-tween/1',
+				name: 'GSAP Object',
+				element: <BasicTweenPages />,
 			},
-			{ path: '/gsap-basics/2', name: '기초 트위닝', element: <GsapBasicsPages /> },
-			{ path: '/gsap-basics/3', name: 'from()과 fromTo()', element: <GsapBasicsPages /> },
-			{ path: '/gsap-basics/4', name: '지연과 반복', element: <GsapBasicsPages /> },
-			{ path: '/gsap-basics/5', name: '가속도', element: <GsapBasicsPages /> },
-			{ path: '/gsap-basics/6', name: '다중 요소 제어하기', element: <GsapBasicsPages /> },
-			{ path: '/gsap-basics/7', name: '트윈 컨트롤', element: <GsapBasicsPages /> },
+			{ path: '/basic-tween/2', name: '기초 트위닝', element: <BasicTweenPages /> },
+			{ path: '/basic-tween/3', name: 'from()과 fromTo()', element: <BasicTweenPages /> },
+			{ path: '/basic-tween/4', name: '지연과 반복', element: <BasicTweenPages /> },
+			{ path: '/basic-tween/5', name: '가속도', element: <BasicTweenPages /> },
+			{ path: '/basic-tween/6', name: '다중 요소 제어하기', element: <BasicTweenPages /> },
+			{ path: '/basic-tween/7', name: '트윈 컨트롤', element: <BasicTweenPages /> },
+			{ path: '/basic-tween/8', name: 'from() 트윈의 문제점', element: <BasicTweenPages /> },
 		],
 	},
 ];
