@@ -4,8 +4,10 @@ import Layout from './layout';
 import Home from './pages';
 import ReactBasics from './pages/react-basics';
 import GsapBasics from './pages/basic-tween';
+import Timelines from './pages/timelines';
 import ReactBasicsPages from './pages/react-basics/Pages';
 import BasicTweenPages from './pages/basic-tween/Pages';
+import TimelinesPages from './pages/timelines/Pages';
 
 interface MenuItem {
 	path: string;
@@ -98,6 +100,23 @@ export const MENU: MenuItem[] = [
 			{ path: '/basic-tween/6', name: '다중 요소 제어하기', element: <BasicTweenPages /> },
 			{ path: '/basic-tween/7', name: '트윈 컨트롤', element: <BasicTweenPages /> },
 			{ path: '/basic-tween/8', name: 'from() 트윈의 문제점', element: <BasicTweenPages /> },
+		],
+	},
+	{
+		path: '/timelines',
+		name: 'Timelines',
+		children: [
+			{
+				path: '/timelines',
+				name: 'Timelines',
+				element: <Timelines />,
+				index: true,
+			},
+			{
+				path: '/timelines/1',
+				name: '타임라인이 중요한 이유',
+				element: <TimelinesPages />,
+			},
 		],
 	},
 ];
