@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import MattersOfTimelines from '../../components/timelines/MattersOfTimelines';
+import BasicTimeline from '../../components/timelines/BasicTimeline';
 
 const Pages = () => {
 	const location = useLocation();
@@ -10,6 +11,8 @@ const Pages = () => {
 		switch (renderCase) {
 			case '1':
 				return <MattersOfTimelines />;
+			case '2':
+				return <BasicTimeline />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;

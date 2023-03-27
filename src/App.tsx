@@ -117,6 +117,11 @@ export const MENU: MenuItem[] = [
 				name: '타임라인이 중요한 이유',
 				element: <TimelinesPages />,
 			},
+			{
+				path: '/timelines/2',
+				name: '기초 타임라인',
+				element: <TimelinesPages />,
+			},
 		],
 	},
 ];
