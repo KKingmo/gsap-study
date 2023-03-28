@@ -122,6 +122,11 @@ export const MENU: MenuItem[] = [
 				name: '기초 타임라인',
 				element: <TimelinesPages />,
 			},
+			{
+				path: '/timelines/3',
+				name: 'Position Parameter 시각적 효과',
+				element: <TimelinesPages />,
+			},
 		],
 	},
 ];
