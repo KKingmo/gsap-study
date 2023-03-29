@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import MattersOfTimelines from '../../components/timelines/MattersOfTimelines';
 import BasicTimeline from '../../components/timelines/BasicTimeline';
 import PositionParameter from '../../components/timelines/PositionParameter';
+import TimelineControl from '../../components/timelines/TimelineControl';
 
 const Pages = () => {
 	const location = useLocation();
@@ -16,6 +17,8 @@ const Pages = () => {
 				return <BasicTimeline />;
 			case '3':
 				return <PositionParameter />;
+			case '4':
+				return <TimelineControl />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;

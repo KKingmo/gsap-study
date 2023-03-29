@@ -308,6 +308,7 @@ v31.3C48.9,450.8,43.1,456.5,36,456.5z'
 					/>
 				</svg>
 			</Box>
+			<Divider flexItem />
 
 			<Typography variant='h2'>Position Parameter 사용 예시</Typography>
 			<CodeBlock language='tsx' codeString={CODESTRING[0]} />

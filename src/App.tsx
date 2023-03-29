@@ -127,6 +127,11 @@ export const MENU: MenuItem[] = [
 				name: 'Position Parameter 시각적 효과',
 				element: <TimelinesPages />,
 			},
+			{
+				path: '/timelines/4',
+				name: '타임라인의 컨트롤과 라벨링',
+				element: <TimelinesPages />,
+			},
 		],
 	},
 ];
