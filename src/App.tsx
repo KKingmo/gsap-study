@@ -5,9 +5,11 @@ import Home from './pages';
 import ReactBasics from './pages/react-basics';
 import GsapBasics from './pages/basic-tween';
 import Timelines from './pages/timelines';
+import BtnAniEffects from './pages/button-animation-effects';
 import ReactBasicsPages from './pages/react-basics/Pages';
 import BasicTweenPages from './pages/basic-tween/Pages';
 import TimelinesPages from './pages/timelines/Pages';
+import BtnAniEffectsPages from './pages/button-animation-effects/Pages';
 
 interface MenuItem {
 	path: string;
@@ -131,6 +133,23 @@ export const MENU: MenuItem[] = [
 				path: '/timelines/4',
 				name: '타임라인의 컨트롤과 라벨링',
 				element: <TimelinesPages />,
+			},
+		],
+	},
+	{
+		path: '/button-animation-effects',
+		name: 'Button Animation Effects',
+		children: [
+			{
+				path: '/button-animation-effects',
+				name: 'Button Animation Effects',
+				element: <BtnAniEffects />,
+				index: true,
+			},
+			{
+				path: '/button-animation-effects/1',
+				name: '단일 메뉴 효과',
+				element: <BtnAniEffectsPages />,
 			},
 		],
 	},
