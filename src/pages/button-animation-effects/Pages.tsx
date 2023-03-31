@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import SingleMenuEffect from '../../components/button-animation-effects/SingleMenuEffect';
+import MultiMenuEffect from '../../components/button-animation-effects/MultiMenuEffect';
 
 const Pages = () => {
 	const location = useLocation();
@@ -11,7 +12,7 @@ const Pages = () => {
 			case '1':
 				return <SingleMenuEffect />;
 			case '2':
-				return <div />;
+				return <MultiMenuEffect />;
 			case '3':
 				return <div />;
 			case '4':
