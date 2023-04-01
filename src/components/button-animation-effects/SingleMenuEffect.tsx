@@ -135,7 +135,7 @@ const SingleMenuEffect = () => {
 			<CodeBlock
 				language='tsx'
 				codeString={CODESTRING[0]}
-				title={'단일 메뉴 예제 의사코드'}
+				title={'단일 메뉴 효과 의사코드'}
 			/>
 			<Divider flexItem />
 		</PageLayout>

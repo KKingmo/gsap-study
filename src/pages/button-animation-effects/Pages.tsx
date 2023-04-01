@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import SingleMenuEffect from '../../components/button-animation-effects/SingleMenuEffect';
 import MultiMenuEffect from '../../components/button-animation-effects/MultiMenuEffect';
+import HoverPulseAnimation from '../../components/button-animation-effects/HoverPulseAnimation';
 
 const Pages = () => {
 	const location = useLocation();
@@ -14,7 +15,7 @@ const Pages = () => {
 			case '2':
 				return <MultiMenuEffect />;
 			case '3':
-				return <div />;
+				return <HoverPulseAnimation />;
 			case '4':
 				return <div />;
 		}

@@ -156,6 +156,11 @@ export const MENU: MenuItem[] = [
 				name: '다중 메뉴 효과',
 				element: <BtnAniEffectsPages />,
 			},
+			{
+				path: '/button-animation-effects/3',
+				name: 'Hover Pulse Animation',
+				element: <BtnAniEffectsPages />,
+			},
 		],
 	},
 ];
