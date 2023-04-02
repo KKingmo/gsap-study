@@ -6,10 +6,12 @@ import ReactBasics from './pages/react-basics';
 import GsapBasics from './pages/basic-tween';
 import Timelines from './pages/timelines';
 import BtnAniEffects from './pages/button-animation-effects';
+import FirstProject from './pages/first-project';
 import ReactBasicsPages from './pages/react-basics/Pages';
 import BasicTweenPages from './pages/basic-tween/Pages';
 import TimelinesPages from './pages/timelines/Pages';
 import BtnAniEffectsPages from './pages/button-animation-effects/Pages';
+import FirstProjectPages from './pages/first-project/Pages';
 
 interface MenuItem {
 	path: string;
@@ -160,6 +162,23 @@ export const MENU: MenuItem[] = [
 				path: '/button-animation-effects/3',
 				name: 'Hover Pulse Animation',
 				element: <BtnAniEffectsPages />,
+			},
+		],
+	},
+	{
+		path: '/first-project',
+		name: '간단한 프로젝트 만들어보기',
+		children: [
+			{
+				path: '/first-project',
+				name: '간단한 프로젝트 만들어보기',
+				element: <FirstProject />,
+				index: true,
+			},
+			{
+				path: '/first-project/1',
+				name: '기초 애니메이션',
+				element: <FirstProjectPages />,
 			},
 		],
 	},

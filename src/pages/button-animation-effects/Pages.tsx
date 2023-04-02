@@ -16,8 +16,6 @@ const Pages = () => {
 				return <MultiMenuEffect />;
 			case '3':
 				return <HoverPulseAnimation />;
-			case '4':
-				return <div />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;
