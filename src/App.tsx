@@ -180,6 +180,11 @@ export const MENU: MenuItem[] = [
 				name: '기초 애니메이션',
 				element: <FirstProjectPages />,
 			},
+			{
+				path: '/first-project/2',
+				name: '타임라인 기본값 설정',
+				element: <FirstProjectPages />,
+			},
 		],
 	},
 ];
