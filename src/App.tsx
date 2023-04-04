@@ -185,6 +185,11 @@ export const MENU: MenuItem[] = [
 				name: '타임라인 기본값 설정',
 				element: <FirstProjectPages />,
 			},
+			{
+				path: '/first-project/3',
+				name: '애니메이션 미세 조정',
+				element: <FirstProjectPages />,
+			},
 		],
 	},
 ];

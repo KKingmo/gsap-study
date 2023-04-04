@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import BaseAnimation from '../../components/first-project/BaseAnimation';
 import SettingTimeline from '../../components/first-project/SettingTimeline';
+import AnimationDetailing from '../../components/first-project/AnimationDetailing';
 
 const Pages = () => {
 	const location = useLocation();
@@ -13,6 +14,8 @@ const Pages = () => {
 				return <BaseAnimation />;
 			case '2':
 				return <SettingTimeline />;
+			case '3':
+				return <AnimationDetailing />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;
