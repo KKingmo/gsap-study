@@ -190,6 +190,11 @@ export const MENU: MenuItem[] = [
 				name: '애니메이션 미세 조정',
 				element: <FirstProjectPages />,
 			},
+			{
+				path: '/first-project/4',
+				name: 'FOUC',
+				element: <FirstProjectPages />,
+			},
 		],
 	},
 ];

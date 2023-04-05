@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import BaseAnimation from '../../components/first-project/BaseAnimation';
 import SettingTimeline from '../../components/first-project/SettingTimeline';
 import AnimationDetailing from '../../components/first-project/AnimationDetailing';
+import Fouc from '../../components/first-project/Fouc';
 
 const Pages = () => {
 	const location = useLocation();
@@ -16,6 +17,8 @@ const Pages = () => {
 				return <SettingTimeline />;
 			case '3':
 				return <AnimationDetailing />;
+			case '4':
+				return <Fouc />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;
