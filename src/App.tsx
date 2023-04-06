@@ -7,11 +7,13 @@ import GsapBasics from './pages/basic-tween';
 import Timelines from './pages/timelines';
 import BtnAniEffects from './pages/button-animation-effects';
 import FirstProject from './pages/first-project';
+import GsapKeyframes from './pages/gsap-keyframes';
 import ReactBasicsPages from './pages/react-basics/Pages';
 import BasicTweenPages from './pages/basic-tween/Pages';
 import TimelinesPages from './pages/timelines/Pages';
 import BtnAniEffectsPages from './pages/button-animation-effects/Pages';
 import FirstProjectPages from './pages/first-project/Pages';
+import GsapKeyframesPages from './pages/gsap-keyframes/Pages';
 
 interface MenuItem {
 	path: string;
@@ -194,6 +196,23 @@ export const MENU: MenuItem[] = [
 				path: '/first-project/4',
 				name: 'FOUC',
 				element: <FirstProjectPages />,
+			},
+		],
+	},
+	{
+		path: '/gsap-keyframes',
+		name: 'GSAP keyframes',
+		children: [
+			{
+				path: '/gsap-keyframes',
+				name: 'GSAP keyframes',
+				element: <GsapKeyframes />,
+				index: true,
+			},
+			{
+				path: '/gsap-keyframes/1',
+				name: '키프레임 사용하기 - 1',
+				element: <GsapKeyframesPages />,
 			},
 		],
 	},
