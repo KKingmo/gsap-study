@@ -3,7 +3,6 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import CodeBlock from '../common/CodeBlock';
 import PageLayout from '../../layout/PageLayout';
-import InfoPaper from '../common/InfoPaper';
 
 const CODESTRING = [
 	`const tweenRef = useRef<HTMLDivElement>(null);
@@ -13,19 +12,18 @@ useEffect(() => {
   const ctx = gsap.context(() => {
     tl.current.to('.among', {
       keyframes: {
-        '0%': { y: 0 },
-        '25%': { y: 0 },
-        '50%': { y: -100, ease: 'sine.out' },
-        '75%': { y: 0, ease: 'sine.in' },
-        '100%': { x: 500, ease: 'none' },
+        '0%': { scale: 1 },
+        '10%': { scale: 0.5 },
+        '70%': { scale: 3, rotation: 360 },
+        '100%': { scale: 1 },
       },
-      duration: 2,
-      stagger: 0.4,
+      duration: 1.5,
     });
   }, tweenRef);
 
   return () => ctx.revert();
-}, []);`,
+}, []);
+`,
 	`const tweenBRef = useRef<HTMLDivElement>(null);
 const tlB = useRef<gsap.core.Timeline>(gsap.timeline());
   
@@ -33,14 +31,13 @@ useEffect(() => {
   const ctx = gsap.context(() => {
     tlB.current.to('.among', {
       keyframes: {
-        '0%': { y: 0 },
-        '25%': { y: 0 },
-        '50%': { rotation: 360, y: -100, ease: 'sine.out' },
-        '75%': { y: 0, ease: 'sine.in' },
-        '100%': { x: 500 },
+        '30%': { x: 420 },
+        '50%': { scale: 2 },
+        '60%': { x: 0 },
+        '70%': { scale: 1 },
+        '100%': { x: 420 },
       },
-      duration: 2,
-      stagger: 0.2,
+      duration: 3,
     });
   }, tweenBRef);
 
@@ -48,7 +45,7 @@ useEffect(() => {
 }, []);`,
 ];
 
-const KeyframesFirst = () => {
+const KeyframesSecond = () => {
 	const tweenRef = useRef<HTMLDivElement>(null);
 	const tweenBRef = useRef<HTMLDivElement>(null);
 
@@ -59,14 +56,12 @@ const KeyframesFirst = () => {
 		const ctx = gsap.context(() => {
 			tl.current.to('.among', {
 				keyframes: {
-					'0%': { y: 0 },
-					'25%': { y: 0 },
-					'50%': { y: -100, ease: 'sine.out' },
-					'75%': { y: 0, ease: 'sine.in' },
-					'100%': { x: 500, ease: 'none' },
+					'0%': { scale: 1 },
+					'10%': { scale: 0.5 },
+					'70%': { scale: 3, rotation: 360 },
+					'100%': { scale: 1 },
 				},
-				duration: 2,
-				stagger: 0.4,
+				duration: 1.5,
 			});
 		}, tweenRef);
 
@@ -77,14 +72,13 @@ const KeyframesFirst = () => {
 		const ctx = gsap.context(() => {
 			tlB.current.to('.among', {
 				keyframes: {
-					'0%': { y: 0 },
-					'25%': { y: 0 },
-					'50%': { rotation: 360, y: -100, ease: 'sine.out' },
-					'75%': { y: 0, ease: 'sine.in' },
-					'100%': { x: 500 },
+					'30%': { x: 420 },
+					'50%': { scale: 2 },
+					'60%': { x: 0 },
+					'70%': { scale: 1 },
+					'100%': { x: 420 },
 				},
-				duration: 2,
-				stagger: 0.2,
+				duration: 3,
 			});
 		}, tweenBRef);
 
@@ -93,17 +87,11 @@ const KeyframesFirst = () => {
 
 	return (
 		<PageLayout>
-			<Typography variant='h1'>키프레임 파헤치기 첫번째</Typography>
+			<Typography variant='h1'>키프레임 파헤치기 두번째</Typography>
 			<Typography variant='body2'>
-				{
-					'GSAP 3.9 버전이 업데이트 되면서 키프레임 구문에  대한 완전히 새로운 접근 방식으로 들어갑니다.\n예전부터 GreenSock 팀은 키프레임의 대해 많은 이야기를 다뤄왔었습니다.\n\n현재 CSS 애니메이션과 GSAP 애니메이션의 성능 차이가 없기 때문에 굳이 귀찮은 백분율 애니메이션 작업을 CSS로 작업할 필요가 없습니다.'
-				}
+				{'키프레임을 사용하여 애니메이션을 생동감있게 만들어 봅시다.'}
 			</Typography>
-			<InfoPaper>
-				{
-					'CSS keyframes의 default ease값은 “power1.inOut” 이고\nGSAP keyframes의 default ease값은 “power1.out” 입니다.'
-				}
-			</InfoPaper>
+			<Typography variant='h2'>Scale and rotation</Typography>
 			<Box
 				ref={tweenRef}
 				sx={{
@@ -112,6 +100,9 @@ const KeyframesFirst = () => {
 					height: '350px',
 					backgroundColor: '#000',
 					'.stage': {
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
 						width: '500px',
 						height: '350px',
 						background: 'gray',
@@ -129,16 +120,9 @@ const KeyframesFirst = () => {
 						backgroundSize: 'cover',
 						position: 'absolute',
 						top: '100px',
-						transform: 'translateX(-100%)',
 					},
 				}}>
 				<div className='stage'>
-					<div className='among'></div>
-					<div className='among'></div>
-					<div className='among'></div>
-					<div className='among'></div>
-					<div className='among'></div>
-					<div className='among'></div>
 					<div className='among'></div>
 				</div>
 			</Box>
@@ -148,7 +132,7 @@ const KeyframesFirst = () => {
 			<CodeBlock language='tsx' codeString={CODESTRING[0]} />
 			<Divider flexItem />
 
-			<Typography variant='h2'>가속도를 이용해 더 유연하게 애니메이션</Typography>
+			<Typography variant='h2'>Wrap around</Typography>
 			<Box
 				ref={tweenBRef}
 				sx={{
@@ -157,6 +141,9 @@ const KeyframesFirst = () => {
 					height: '350px',
 					backgroundColor: '#000',
 					'.stage': {
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'flex-start',
 						width: '500px',
 						height: '350px',
 						background: 'gray',
@@ -174,16 +161,9 @@ const KeyframesFirst = () => {
 						backgroundSize: 'cover',
 						position: 'absolute',
 						top: '100px',
-						transform: 'translateX(-100%)',
 					},
 				}}>
 				<div className='stage'>
-					<div className='among'></div>
-					<div className='among'></div>
-					<div className='among'></div>
-					<div className='among'></div>
-					<div className='among'></div>
-					<div className='among'></div>
 					<div className='among'></div>
 				</div>
 			</Box>
@@ -196,4 +176,4 @@ const KeyframesFirst = () => {
 	);
 };
 
-export default KeyframesFirst;
+export default KeyframesSecond;

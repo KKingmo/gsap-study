@@ -1,9 +1,7 @@
 import { useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
-import SettingTimeline from '../../components/first-project/SettingTimeline';
-import AnimationDetailing from '../../components/first-project/AnimationDetailing';
-import Fouc from '../../components/first-project/Fouc';
 import KeyframesFirst from '../../components/gsap-keyframes/KeyframesFirst';
+import KeyframesSecond from '../../components/gsap-keyframes/KeyframesSecond';
 
 const Pages = () => {
 	const location = useLocation();
@@ -14,11 +12,11 @@ const Pages = () => {
 			case '1':
 				return <KeyframesFirst />;
 			case '2':
-				return <SettingTimeline />;
+				return <KeyframesSecond />;
 			case '3':
-				return <AnimationDetailing />;
+				return <div />;
 			case '4':
-				return <Fouc />;
+				return <div />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;
