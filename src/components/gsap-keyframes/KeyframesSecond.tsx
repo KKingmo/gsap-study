@@ -87,7 +87,7 @@ const KeyframesSecond = () => {
 
 	return (
 		<PageLayout>
-			<Typography variant='h1'>키프레임 파헤치기 두번째</Typography>
+			<Typography variant='h1'>키프레임 사용하기 두번째</Typography>
 			<Typography variant='body2'>
 				{'키프레임을 사용하여 애니메이션을 생동감있게 만들어 봅시다.'}
 			</Typography>

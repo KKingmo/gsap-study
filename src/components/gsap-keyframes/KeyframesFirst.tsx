@@ -93,7 +93,7 @@ const KeyframesFirst = () => {
 
 	return (
 		<PageLayout>
-			<Typography variant='h1'>키프레임 파헤치기 첫번째</Typography>
+			<Typography variant='h1'>키프레임 사용하기 첫번째</Typography>
 			<Typography variant='body2'>
 				{
 					'GSAP 3.9 버전이 업데이트 되면서 키프레임 구문에  대한 완전히 새로운 접근 방식으로 들어갑니다.\n예전부터 GreenSock 팀은 키프레임의 대해 많은 이야기를 다뤄왔었습니다.\n\n현재 CSS 애니메이션과 GSAP 애니메이션의 성능 차이가 없기 때문에 굳이 귀찮은 백분율 애니메이션 작업을 CSS로 작업할 필요가 없습니다.'

@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import KeyframesFirst from '../../components/gsap-keyframes/KeyframesFirst';
 import KeyframesSecond from '../../components/gsap-keyframes/KeyframesSecond';
+import UnderstandingKeyframes from '../../components/gsap-keyframes/UnderstandingKeyframes';
 
 const Pages = () => {
 	const location = useLocation();
@@ -14,7 +15,7 @@ const Pages = () => {
 			case '2':
 				return <KeyframesSecond />;
 			case '3':
-				return <div />;
+				return <UnderstandingKeyframes />;
 			case '4':
 				return <div />;
 		}
