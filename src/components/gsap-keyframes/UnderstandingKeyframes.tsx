@@ -1,5 +1,5 @@
-import { Box, Button, Divider, Typography } from '@mui/material';
-import { useEffect, useRef } from 'react';
+import { Box, Divider, Typography } from '@mui/material';
+import { MouseEvent, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import CodeBlock from '../common/CodeBlock';
 import PageLayout from '../../layout/PageLayout';
@@ -47,9 +47,203 @@ gsap.to(".box", {
   ease: 'none' // ease the entire keyframe block
   duration: 2,
 })`,
+	`gsap.to(".elem", {
+  keyframes: {
+   x: [100, 0, 50],
+   y: [100, 0, 50]
+   easeEach: 'sine.inOut' // ease between keyframes
+   ease: 'expo.out' // ease the entire keyframe block
+  },
+  duration: 2,
+})`,
+	`const eachTween = useRef<gsap.core.Tween | null>(null);
+const easeTween = useRef<gsap.core.Tween | null>(null);
+
+useEffect(() => {
+  const ctx = gsap.context(() => {
+    eachTween.current = gsap.to('.elem', {
+      keyframes: {
+        x: [0, 100, 100, 0, 0],
+        y: [0, 0, 100, 100, 0],
+        easeEach: 'power4.inOut', // <- customise the ease between each keyframe
+      },
+      duration: 5,
+      paused: true,
+    });
+
+    easeTween.current = gsap.to('.elem', {
+      keyframes: {
+        x: [0, 100, 100, 0, 0],
+        y: [0, 0, 100, 100, 0],
+        easeEach: 'none', // <- override the default keyframe ease
+      },
+      ease: 'power4.inOut', // <- apply an ease to all the keyframes
+      duration: 5,
+      paused: true,
+    });
+
+    easeTween.current.play();
+  });
+
+  return () => ctx.revert();
+}, []);
+
+const handleChange = (event: MouseEvent<HTMLFormElement>) => {
+  const target = event.target as HTMLFormElement;
+  const value = target.value;
+  const text = document.querySelector('.text');
+
+  if (!eachTween.current || !easeTween.current || !text) return;
+  if (value === 'ease') {
+    eachTween.current.kill();
+    easeTween.current.play(0);
+    text.textContent = 'ease the whole keyframe';
+  } else {
+    easeTween.current.kill();
+    eachTween.current.play(0);
+    text.textContent = 'ease between keyframes';
+  }
+};
+
+return (
+  <Box
+    sx={{
+      display: 'flex',
+      alignItems: 'center',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      overflow: 'hidden',
+      backgroundColor: '#262626',
+      padding: '3rem',
+      width: '100%',
+      color: '#fff',
+      form: {
+        display: 'flex',
+        flexDirection: 'column',
+        '& > * + *': {
+          marginTop: '1rem',
+        },
+        '& > div': { display: 'flex', gap: '1rem' },
+      },
+      section: {
+        display: 'flex',
+        width: '100%',
+        maxWidth: '500px',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+      },
+      svg: {
+        minWidth: '200px',
+        width: '50%',
+      },
+    }}>
+    <p className='text'>Fine-tune your easing with ease and easeEach</p>
+    <section>
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 150'>
+        <rect
+          opacity='0.5'
+          strokeWidth='0.3'
+          x='25'
+          y='25'
+          width='100'
+          height='100'
+          fill='none'
+          stroke='#fff'
+          strokeMiterlimit='5'
+          strokeDasharray='5'
+        />
+        <circle cx='25' cy='25' r='2' fill='#d5d5d5' />
+        <circle cx='125' cy='25' r='2' fill='#d5d5d5' />
+        <circle cx='125' cy='125' r='2' fill='#d5d5d5' />
+        <circle cx='25' cy='125' r='2' fill='#d5d5d5' />
+        <rect
+          className='elem'
+          x='10'
+          y='10'
+          width='30'
+          height='30'
+          rx='4'
+          fill='#88ce02'
+        />
+      </svg>
+
+      <form onChange={handleChange}>
+        <div className='pretty p-default p-curve'>
+          <input
+            type='radio'
+            name='eases'
+            id='ease'
+            value='ease'
+            defaultChecked
+          />
+          <div className='state'>
+            <label htmlFor='ease'>ease</label>
+          </div>
+        </div>
+
+        <div className='pretty p-default p-curve'>
+          <input type='radio' name='eases' id='each' value='each' />
+          <div className='state'>
+            <label htmlFor='each'>easeEach</label>
+          </div>
+        </div>
+      </form>
+    </section>
+  </Box>
+)`,
 ];
 
 const UnderstandingKeyframes = () => {
+	const eachTween = useRef<gsap.core.Tween | null>(null);
+	const easeTween = useRef<gsap.core.Tween | null>(null);
+
+	useEffect(() => {
+		const ctx = gsap.context(() => {
+			eachTween.current = gsap.to('.elem', {
+				keyframes: {
+					x: [0, 100, 100, 0, 0],
+					y: [0, 0, 100, 100, 0],
+					easeEach: 'power4.inOut', // <- customise the ease between each keyframe
+				},
+				duration: 5,
+				paused: true,
+			});
+
+			easeTween.current = gsap.to('.elem', {
+				keyframes: {
+					x: [0, 100, 100, 0, 0],
+					y: [0, 0, 100, 100, 0],
+					easeEach: 'none', // <- override the default keyframe ease
+				},
+				ease: 'power4.inOut', // <- apply an ease to all the keyframes
+				duration: 5,
+				paused: true,
+			});
+
+			easeTween.current.play();
+		});
+
+		return () => ctx.revert();
+	}, []);
+
+	const handleChange = (event: MouseEvent<HTMLFormElement>) => {
+		const target = event.target as HTMLFormElement;
+		const value = target.value;
+		const text = document.querySelector('.text');
+
+		if (!eachTween.current || !easeTween.current || !text) return;
+		if (value === 'ease') {
+			eachTween.current.kill();
+			easeTween.current.play(0);
+			text.textContent = 'ease the whole keyframe';
+		} else {
+			easeTween.current.kill();
+			eachTween.current.play(0);
+			text.textContent = 'ease between keyframes';
+		}
+	};
+
 	return (
 		<PageLayout>
 			<Typography variant='h1'>키프레임 이해하기</Typography>
@@ -77,6 +271,109 @@ const UnderstandingKeyframes = () => {
 				}
 			</Typography>
 			<CodeBlock language='tsx' codeString={CODESTRING[2]} />
+			<Divider flexItem />
+
+			<Typography variant='h2'>Simple Array-based keyframes - v3.9</Typography>
+			<Typography variant='body2'>
+				{
+					'값의 배열을 정의하기만 하면 트윈에 지정된 시간 동안 균등하게 분배됩니다.\n\n기본 키프레임별 ease는 power1.inOut이지만, easeEach를 사용하여 이를 재정의할 수 있습니다.\n배열의 요소 수가 같을 필요는 없습니다.'
+				}
+			</Typography>
+			<CodeBlock language='tsx' codeString={CODESTRING[3]} />
+			<Divider flexItem />
+
+			<Typography variant='h2'>Easing keyframes</Typography>
+			<Typography variant='body2'>
+				{
+					'애니메이션에서 완급 조절은 필수 요소이며 키프레임은 엄청난 유연성을 제공합니다.\n\n백분율 키프레임과 단순 키프레임을 사용하면 각 키프레임 사이의 완급을 쉽게 제어할 수 있습니다.\n아래 form의 ease를 선택하면 전체적으로 완급 조절이되고, easeEach를 선택하면 키프레임 구간별로 완급 조절이되는 것을 확인할 수 있습니다.'
+				}
+			</Typography>
+			<Box
+				sx={{
+					display: 'flex',
+					alignItems: 'center',
+					flexDirection: 'column',
+					justifyContent: 'center',
+					overflow: 'hidden',
+					backgroundColor: '#262626',
+					padding: '3rem',
+					width: '100%',
+					color: '#fff',
+					form: {
+						display: 'flex',
+						flexDirection: 'column',
+						'& > * + *': {
+							marginTop: '1rem',
+						},
+						'& > div': { display: 'flex', gap: '1rem' },
+					},
+					section: {
+						display: 'flex',
+						width: '100%',
+						maxWidth: '500px',
+						justifyContent: 'space-around',
+						alignItems: 'center',
+						flexWrap: 'wrap',
+					},
+					svg: {
+						minWidth: '200px',
+						width: '50%',
+					},
+				}}>
+				<p className='text'>Fine-tune your easing with ease and easeEach</p>
+				<section>
+					<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 150'>
+						<rect
+							opacity='0.5'
+							strokeWidth='0.3'
+							x='25'
+							y='25'
+							width='100'
+							height='100'
+							fill='none'
+							stroke='#fff'
+							strokeMiterlimit='5'
+							strokeDasharray='5'
+						/>
+						<circle cx='25' cy='25' r='2' fill='#d5d5d5' />
+						<circle cx='125' cy='25' r='2' fill='#d5d5d5' />
+						<circle cx='125' cy='125' r='2' fill='#d5d5d5' />
+						<circle cx='25' cy='125' r='2' fill='#d5d5d5' />
+						<rect
+							className='elem'
+							x='10'
+							y='10'
+							width='30'
+							height='30'
+							rx='4'
+							fill='#88ce02'
+						/>
+					</svg>
+
+					<form onChange={handleChange}>
+						<div className='pretty p-default p-curve'>
+							<input
+								type='radio'
+								name='eases'
+								id='ease'
+								value='ease'
+								defaultChecked
+							/>
+							<div className='state'>
+								<label htmlFor='ease'>ease</label>
+							</div>
+						</div>
+
+						<div className='pretty p-default p-curve'>
+							<input type='radio' name='eases' id='each' value='each' />
+							<div className='state'>
+								<label htmlFor='each'>easeEach</label>
+							</div>
+						</div>
+					</form>
+				</section>
+			</Box>
+			<CodeBlock language='tsx' codeString={CODESTRING[4]} />
 			<Divider flexItem />
 		</PageLayout>
 	);
