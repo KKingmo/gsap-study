@@ -246,7 +246,7 @@ const UnderstandingKeyframes = () => {
 
 	return (
 		<PageLayout>
-			<Typography variant='h1'>키프레임 이해하기</Typography>
+			<Typography variant='h1'>키프레임 이해하기 - 1</Typography>
 			<Typography variant='body2'>
 				{
 					'하나의 타겟에 애니메이션을 적용하기 위해 여러 개의 트윈을 작성해야 하는 상황이라면 키프레임을 활용해야 할 때입니다.\n키프레임은 코드를 간결하게 유지하면서 일련의 단계를 통해 타겟을 이동할 수 있는 좋은 방법입니다.\n\n아래와 같이 반복적인 타임라인을 하나의 트윈에 맞게 간소화할 수 있습니다.\n키프레임은 트윈 안에 중첩된 하위 타임라인으로 생각하면 좋습니다'

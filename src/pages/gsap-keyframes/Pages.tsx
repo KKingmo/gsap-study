@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import KeyframesFirst from '../../components/gsap-keyframes/KeyframesFirst';
 import KeyframesSecond from '../../components/gsap-keyframes/KeyframesSecond';
 import UnderstandingKeyframes from '../../components/gsap-keyframes/UnderstandingKeyframes';
+import UnderstandingKeyframesB from '../../components/gsap-keyframes/UnderstandingKeyframesB';
 
 const Pages = () => {
 	const location = useLocation();
@@ -17,7 +18,7 @@ const Pages = () => {
 			case '3':
 				return <UnderstandingKeyframes />;
 			case '4':
-				return <div />;
+				return <UnderstandingKeyframesB />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;

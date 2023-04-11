@@ -221,7 +221,12 @@ export const MENU: MenuItem[] = [
 			},
 			{
 				path: '/gsap-keyframes/3',
-				name: '키프레임 이해하기',
+				name: '키프레임 이해하기 - 1',
+				element: <GsapKeyframesPages />,
+			},
+			{
+				path: '/gsap-keyframes/4',
+				name: '키프레임 이해하기 - 2',
 				element: <GsapKeyframesPages />,
 			},
 		],
