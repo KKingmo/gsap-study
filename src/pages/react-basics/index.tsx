@@ -13,7 +13,8 @@ const Index = () => {
 				</Grid>
 				<Grid item xs={12}>
 					<Link target='_blank' href='https://greensock.com/react-basics/'>
-						이 파트에서 참고할 Docs 링크
+						이 파트에서는 GSAP Learning Center의 Getting Started with GSAP + React를
+						참고하였습니다.
 					</Link>
 				</Grid>
 			</Grid>

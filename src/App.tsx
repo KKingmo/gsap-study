@@ -8,12 +8,14 @@ import Timelines from './pages/timelines';
 import BtnAniEffects from './pages/button-animation-effects';
 import FirstProject from './pages/first-project';
 import GsapKeyframes from './pages/gsap-keyframes';
+import ReactAdvanced from './pages/react-advanced';
 import ReactBasicsPages from './pages/react-basics/Pages';
 import BasicTweenPages from './pages/basic-tween/Pages';
 import TimelinesPages from './pages/timelines/Pages';
 import BtnAniEffectsPages from './pages/button-animation-effects/Pages';
 import FirstProjectPages from './pages/first-project/Pages';
 import GsapKeyframesPages from './pages/gsap-keyframes/Pages';
+import ReactAdvancedPages from './pages/react-advanced/Pages';
 
 interface MenuItem {
 	path: string;
@@ -228,6 +230,23 @@ export const MENU: MenuItem[] = [
 				path: '/gsap-keyframes/4',
 				name: '키프레임 이해하기 - 2',
 				element: <GsapKeyframesPages />,
+			},
+		],
+	},
+	{
+		path: '/react-advanced',
+		name: 'GSAP + React Advanced',
+		children: [
+			{
+				path: '/react-advanced',
+				name: 'GSAP + React Advanced',
+				element: <ReactAdvanced />,
+				index: true,
+			},
+			{
+				path: '/react-advanced/1',
+				name: 'Component Communication',
+				element: <ReactAdvancedPages />,
 			},
 		],
 	},
