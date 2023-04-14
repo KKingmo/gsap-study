@@ -24,7 +24,7 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import TurnRightIcon from '@mui/icons-material/TurnRight';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
-const drawerWidth = 300;
+const drawerWidth = 340;
 
 interface MenuType {
 	path: string;

@@ -248,6 +248,11 @@ export const MENU: MenuItem[] = [
 				name: 'Component Communication',
 				element: <ReactAdvancedPages />,
 			},
+			{
+				path: '/react-advanced/2',
+				name: 'Passing down a timeline prop',
+				element: <ReactAdvancedPages />,
+			},
 		],
 	},
 ];
