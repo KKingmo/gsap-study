@@ -253,6 +253,11 @@ export const MENU: MenuItem[] = [
 				name: 'Passing down a timeline prop',
 				element: <ReactAdvancedPages />,
 			},
+			{
+				path: '/react-advanced/3',
+				name: 'Passing down a callback to build a timeline',
+				element: <ReactAdvancedPages />,
+			},
 		],
 	},
 ];

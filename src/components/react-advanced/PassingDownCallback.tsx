@@ -1,58 +1,32 @@
 import { Box, Button, Divider, Typography } from '@mui/material';
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import CodeBlock from '../common/CodeBlock';
 import PageLayout from '../../layout/PageLayout';
 
 const CODESTRING = [
-	`function Box({ children, timeline, index }) {
-  const el = useRef();
-  // add 'left 100px' animation to timeline
-  useLayoutEffect(() => {    
-    timeline && timeline.to(el.current, { x: -100 }, index * 0.1);
-  }, [timeline]);
-  
-  return <div className="box" ref={el}>{children}</div>;
-}
-
-function Circle({ children, timeline, index, rotation }) {
-  const el = useRef();
-  
-  useLayoutEffect(() => {   
-    // add 'right 100px, rotate 360deg' animation to timeline
-    timeline && timeline.to(el.current, {  rotate: rotation, x: 100 }, index * 0.1);
-  }, [timeline, rotation]);
-  
-  return <div className="circle" ref={el}>{children}</div>;
-}
-
-function App() {    
-  const [tl, setTl] = useState();
-      
-  return (
-    <div className="app">   
-      <button onClick={() => setReversed(!reversed)}>Toggle</button>
-      <Box timeline={tl} index={0}>Box</Box>
-      <Circle timeline={tl} rotation={360} index={1}>Circle</Circle>
-    </div>
-  );
-}`,
 	`interface GsapComponentProps {
-    children: ReactNode;
-    timeline?: gsap.core.Timeline | null;
-    index: number;
-  }
-  
+  children: ReactNode;
+  addAnimation: (animation: gsap.core.Tween, index: number) => void;
+  index: number;
+}
+
 interface CircleProps extends GsapComponentProps {
   rotation: string | number;
 }
 
-const RenderBox = ({ children, timeline, index }: GsapComponentProps) => {
+const RenderBox = ({ children, addAnimation, index }: GsapComponentProps) => {
   const el = useRef<HTMLDivElement>(null);
   // add 'left 100px' animation to timeline
   useEffect(() => {
-    timeline && timeline.to(el.current, { x: -100 }, index * 0.1);
-  }, [timeline, index]);
+    console.log('Box effect');
+    const ctx = gsap.context(() => {
+      const animation = gsap.to(el.current, { x: -100 });
+      addAnimation(animation, index);
+    });
+
+    return () => ctx.revert();
+  }, [addAnimation, index]);
 
   return (
     <Box
@@ -74,13 +48,18 @@ const RenderBox = ({ children, timeline, index }: GsapComponentProps) => {
   );
 };
 
-const RenderCircle = ({ children, timeline, index, rotation }: CircleProps) => {
+const RenderCircle = ({ children, addAnimation, index, rotation }: CircleProps) => {
   const el = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // add 'right 100px, rotate 360deg' animation to timeline
-    timeline && timeline.to(el.current, { rotate: rotation, x: 100 }, index * 0.1);
-  }, [timeline, rotation, index]);
+    console.log('Circle effect');
+    const ctx = gsap.context(() => {
+      const animation = gsap.to(el.current, { rotate: rotation, x: 100 });
+      addAnimation(animation, index);
+    });
+
+    return () => ctx.revert();
+  }, [addAnimation, index, rotation]);
 
   return (
     <Box
@@ -102,11 +81,12 @@ const RenderCircle = ({ children, timeline, index, rotation }: CircleProps) => {
   );
 };
 
-const PassingDownTimelineProp = () => {
+const PassingDownCallback = () => {
   const [reversed, setReversed] = useState(false);
   const [tl, setTl] = useState<gsap.core.Timeline | null>();
 
   useEffect(() => {
+    console.log('App effect');
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
       setTl(tl);
@@ -114,7 +94,15 @@ const PassingDownTimelineProp = () => {
     return () => ctx.revert();
   }, []);
 
+  const addAnimation = useCallback(
+    (animation: gsap.core.Tween, index: number) => {
+      tl && tl.add(animation, index * 0.1);
+    },
+    [tl],
+  );
+
   useEffect(() => {
+    console.log('Reverse effect');
     tl && tl.reversed(reversed);
   }, [reversed, tl]);
 
@@ -125,31 +113,31 @@ const PassingDownTimelineProp = () => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          width: '100%',
           gap: '2rem',
+          padding: '2rem 0',
+          width: '100%',
+          backgroundColor: '#262626',
         }}>
         <Button variant='contained' onClick={() => setReversed(!reversed)}>
           Toggle
         </Button>
-        <RenderBox timeline={tl} index={0}>
+        <RenderBox addAnimation={addAnimation} index={0}>
           Box
         </RenderBox>
-        <RenderCircle timeline={tl} rotation={360} index={1}>
+        <RenderCircle addAnimation={addAnimation} rotation={360} index={1}>
           Circle
         </RenderCircle>
       </Box>
-      <CodeBlock language='tsx' codeString={CODESTRING[1]} />
     </PageLayout>
   );
 };
 
-export default PassingDownTimelineProp;
-`,
+export default PassingDownCallback;`,
 ];
 
 interface GsapComponentProps {
 	children: ReactNode;
-	timeline?: gsap.core.Timeline | null;
+	addAnimation: (animation: gsap.core.Tween, index: number) => void;
 	index: number;
 }
 
@@ -157,12 +145,18 @@ interface CircleProps extends GsapComponentProps {
 	rotation: string | number;
 }
 
-const RenderBox = ({ children, timeline, index }: GsapComponentProps) => {
+const RenderBox = ({ children, addAnimation, index }: GsapComponentProps) => {
 	const el = useRef<HTMLDivElement>(null);
 	// add 'left 100px' animation to timeline
 	useEffect(() => {
-		timeline && timeline.to(el.current, { x: -100 }, index * 0.1);
-	}, [timeline, index]);
+		console.log('Box effect');
+		const ctx = gsap.context(() => {
+			const animation = gsap.to(el.current, { x: -100 });
+			addAnimation(animation, index);
+		});
+
+		return () => ctx.revert();
+	}, [addAnimation, index]);
 
 	return (
 		<Box
@@ -184,13 +178,18 @@ const RenderBox = ({ children, timeline, index }: GsapComponentProps) => {
 	);
 };
 
-const RenderCircle = ({ children, timeline, index, rotation }: CircleProps) => {
+const RenderCircle = ({ children, addAnimation, index, rotation }: CircleProps) => {
 	const el = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		// add 'right 100px, rotate 360deg' animation to timeline
-		timeline && timeline.to(el.current, { rotate: rotation, x: 100 }, index * 0.1);
-	}, [timeline, rotation, index]);
+		console.log('Circle effect');
+		const ctx = gsap.context(() => {
+			const animation = gsap.to(el.current, { rotate: rotation, x: 100 });
+			addAnimation(animation, index);
+		});
+
+		return () => ctx.revert();
+	}, [addAnimation, index, rotation]);
 
 	return (
 		<Box
@@ -212,11 +211,12 @@ const RenderCircle = ({ children, timeline, index, rotation }: CircleProps) => {
 	);
 };
 
-const PassingDownTimelineProp = () => {
+const PassingDownCallback = () => {
 	const [reversed, setReversed] = useState(false);
 	const [tl, setTl] = useState<gsap.core.Timeline | null>();
 
 	useEffect(() => {
+		console.log('App effect');
 		const ctx = gsap.context(() => {
 			const tl = gsap.timeline();
 			setTl(tl);
@@ -224,23 +224,26 @@ const PassingDownTimelineProp = () => {
 		return () => ctx.revert();
 	}, []);
 
+	const addAnimation = useCallback(
+		(animation: gsap.core.Tween, index: number) => {
+			tl && tl.add(animation, index * 0.1);
+		},
+		[tl],
+	);
+
 	useEffect(() => {
+		console.log('Reverse effect');
 		tl && tl.reversed(reversed);
 	}, [reversed, tl]);
 
 	return (
 		<PageLayout>
-			<Typography variant='h1'>Passing down a timeline prop</Typography>
+			<Typography variant='h1'>Passing down a callback to build a timeline</Typography>
 			<Typography variant='body2'>
 				{
-					'타임라인에 useRef 대신 useState를 사용하고 있다는 점에 유의하세요.\n이는 자식이 처음 렌더링할 때 타임라인을 사용할 수 있도록 하기 위함입니다.'
+					'이전 파트의 Passing down a timeline prop에 변화를 주었습니다.\n이전 파트에서는 `timeline`객체를 직접 자식 컴포넌트에 전달하여 자식 컴포넌트에서 직접 `timeline`에 자신의 애니메이션을 추가하였습니다.\n이 방식은 컴포넌트가 `timeline`을 직접 수정하므로, 전체 애니메이션 시퀀스에 대한 통제가 더 어려워 질 수 있습니다.\n때문에 이를 `addAnimation`함수를 컴포넌트에 전달하는 방식으로 바꿀 수 있습니다.'
 				}
 			</Typography>
-
-			<CodeBlock language='tsx' codeString={CODESTRING[0]} title={'참고 코드'} />
-			<Divider flexItem />
-
-			<Typography variant='h1'>Passing down a timeline prop 구현하기</Typography>
 			<Box
 				sx={{
 					display: 'flex',
@@ -254,17 +257,17 @@ const PassingDownTimelineProp = () => {
 				<Button variant='contained' onClick={() => setReversed(!reversed)}>
 					Toggle
 				</Button>
-				<RenderBox timeline={tl} index={0}>
+				<RenderBox addAnimation={addAnimation} index={0}>
 					Box
 				</RenderBox>
-				<RenderCircle timeline={tl} rotation={360} index={1}>
+				<RenderCircle addAnimation={addAnimation} rotation={360} index={1}>
 					Circle
 				</RenderCircle>
 			</Box>
-			<CodeBlock language='tsx' codeString={CODESTRING[1]} title={'구현 코드'} />
+			<CodeBlock language='tsx' codeString={CODESTRING[0]} title={'구현 코드'} />
 			<Divider flexItem />
 		</PageLayout>
 	);
 };
 
-export default PassingDownTimelineProp;
+export default PassingDownCallback;
