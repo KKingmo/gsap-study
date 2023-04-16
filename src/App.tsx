@@ -258,6 +258,11 @@ export const MENU: MenuItem[] = [
 				name: 'Passing down a callback to build a timeline',
 				element: <ReactAdvancedPages />,
 			},
+			{
+				path: '/react-advanced/4',
+				name: 'React Context',
+				element: <ReactAdvancedPages />,
+			},
 		],
 	},
 ];

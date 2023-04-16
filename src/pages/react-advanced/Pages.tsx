@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import ComponentCommunication from '../../components/react-advanced/ComponentCommunication';
 import PassingDownTimelineProp from '../../components/react-advanced/PassingDownTimelineProp';
 import PassingDownCallback from '../../components/react-advanced/PassingDownCallback';
+import ReactContext from '../../components/react-advanced/ReactContext';
 
 const Pages = () => {
 	const location = useLocation();
@@ -17,7 +18,7 @@ const Pages = () => {
 			case '3':
 				return <PassingDownCallback />;
 			case '4':
-				return <div />;
+				return <ReactContext />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;
