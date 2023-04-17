@@ -263,6 +263,11 @@ export const MENU: MenuItem[] = [
 				name: 'React Context',
 				element: <ReactAdvancedPages />,
 			},
+			{
+				path: '/react-advanced/5',
+				name: 'Imperative Communication',
+				element: <ReactAdvancedPages />,
+			},
 		],
 	},
 ];
