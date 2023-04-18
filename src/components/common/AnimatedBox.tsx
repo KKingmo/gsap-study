@@ -57,6 +57,7 @@ const StyledBox = styled('div')(({ theme }) => ({
 	textAlign: 'center',
 	color: '#fff',
 	fontSize: '1rem',
+	backgroundColor: '#28a92b',
 	'&.green': {
 		backgroundColor: 'green',
 	},

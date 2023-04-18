@@ -5,6 +5,7 @@ import PassingDownTimelineProp from '../../components/react-advanced/PassingDown
 import PassingDownCallback from '../../components/react-advanced/PassingDownCallback';
 import ReactContext from '../../components/react-advanced/ReactContext';
 import ImperativeCommunication from '../../components/react-advanced/ImperativeCommunication';
+import CreatingReusableAnimations from '../../components/react-advanced/CreatingReusableAnimations';
 
 const Pages = () => {
 	const location = useLocation();
@@ -22,6 +23,8 @@ const Pages = () => {
 				return <ReactContext />;
 			case '5':
 				return <ImperativeCommunication />;
+			case '6':
+				return <CreatingReusableAnimations />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;

@@ -268,6 +268,11 @@ export const MENU: MenuItem[] = [
 				name: 'Imperative Communication',
 				element: <ReactAdvancedPages />,
 			},
+			{
+				path: '/react-advanced/6',
+				name: 'Creating reusable animations',
+				element: <ReactAdvancedPages />,
+			},
 		],
 	},
 ];
