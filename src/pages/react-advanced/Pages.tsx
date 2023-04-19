@@ -6,6 +6,7 @@ import PassingDownCallback from '../../components/react-advanced/PassingDownCall
 import ReactContext from '../../components/react-advanced/ReactContext';
 import ImperativeCommunication from '../../components/react-advanced/ImperativeCommunication';
 import CreatingReusableAnimations from '../../components/react-advanced/CreatingReusableAnimations';
+import RegisterEffect from '../../components/react-advanced/RegisterEffect';
 
 const Pages = () => {
 	const location = useLocation();
@@ -25,6 +26,8 @@ const Pages = () => {
 				return <ImperativeCommunication />;
 			case '6':
 				return <CreatingReusableAnimations />;
+			case '7':
+				return <RegisterEffect />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;

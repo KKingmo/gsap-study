@@ -273,6 +273,11 @@ export const MENU: MenuItem[] = [
 				name: 'Creating reusable animations',
 				element: <ReactAdvancedPages />,
 			},
+			{
+				path: '/react-advanced/7',
+				name: 'RegisterEffect()',
+				element: <ReactAdvancedPages />,
+			},
 		],
 	},
 ];
