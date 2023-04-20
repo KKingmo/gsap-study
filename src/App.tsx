@@ -278,6 +278,11 @@ export const MENU: MenuItem[] = [
 				name: 'RegisterEffect()',
 				element: <ReactAdvancedPages />,
 			},
+			{
+				path: '/react-advanced/8',
+				name: 'Exit animations',
+				element: <ReactAdvancedPages />,
+			},
 		],
 	},
 ];
