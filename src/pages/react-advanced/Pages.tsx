@@ -8,6 +8,7 @@ import ImperativeCommunication from '../../components/react-advanced/ImperativeC
 import CreatingReusableAnimations from '../../components/react-advanced/CreatingReusableAnimations';
 import RegisterEffect from '../../components/react-advanced/RegisterEffect';
 import ExitAnimations from '../../components/react-advanced/ExitAnimations';
+import ExitAnimationsAdvanced from '../../components/react-advanced/ExitAnimationsAdvanced';
 
 const Pages = () => {
 	const location = useLocation();
@@ -31,6 +32,8 @@ const Pages = () => {
 				return <RegisterEffect />;
 			case '8':
 				return <ExitAnimations />;
+			case '9':
+				return <ExitAnimationsAdvanced />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;

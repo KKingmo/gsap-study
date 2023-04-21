@@ -283,6 +283,11 @@ export const MENU: MenuItem[] = [
 				name: 'Exit animations',
 				element: <ReactAdvancedPages />,
 			},
+			{
+				path: '/react-advanced/9',
+				name: 'Exit animations Advanced',
+				element: <ReactAdvancedPages />,
+			},
 		],
 	},
 ];
