@@ -288,6 +288,11 @@ export const MENU: MenuItem[] = [
 				name: 'Exit animations Advanced',
 				element: <ReactAdvancedPages />,
 			},
+			{
+				path: '/react-advanced/10',
+				name: 'useGsapContext',
+				element: <ReactAdvancedPages />,
+			},
 		],
 	},
 ];

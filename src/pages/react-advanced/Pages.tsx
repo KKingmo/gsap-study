@@ -9,6 +9,7 @@ import CreatingReusableAnimations from '../../components/react-advanced/Creating
 import RegisterEffect from '../../components/react-advanced/RegisterEffect';
 import ExitAnimations from '../../components/react-advanced/ExitAnimations';
 import ExitAnimationsAdvanced from '../../components/react-advanced/ExitAnimationsAdvanced';
+import UseGsapContext from '../../components/react-advanced/UseGsapContext';
 
 const Pages = () => {
 	const location = useLocation();
@@ -34,6 +35,8 @@ const Pages = () => {
 				return <ExitAnimations />;
 			case '9':
 				return <ExitAnimationsAdvanced />;
+			case '10':
+				return <UseGsapContext />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;
