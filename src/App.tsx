@@ -293,6 +293,11 @@ export const MENU: MenuItem[] = [
 				name: 'useGsapContext',
 				element: <ReactAdvancedPages />,
 			},
+			{
+				path: '/react-advanced/11',
+				name: 'useStateRef',
+				element: <ReactAdvancedPages />,
+			},
 		],
 	},
 ];
