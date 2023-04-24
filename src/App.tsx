@@ -9,6 +9,7 @@ import BtnAniEffects from './pages/button-animation-effects';
 import FirstProject from './pages/first-project';
 import GsapKeyframes from './pages/gsap-keyframes';
 import ReactAdvanced from './pages/react-advanced';
+import AnimationControls from './pages/animation-controls';
 import ReactBasicsPages from './pages/react-basics/Pages';
 import BasicTweenPages from './pages/basic-tween/Pages';
 import TimelinesPages from './pages/timelines/Pages';
@@ -16,6 +17,7 @@ import BtnAniEffectsPages from './pages/button-animation-effects/Pages';
 import FirstProjectPages from './pages/first-project/Pages';
 import GsapKeyframesPages from './pages/gsap-keyframes/Pages';
 import ReactAdvancedPages from './pages/react-advanced/Pages';
+import AnimationControlsPages from './pages/animation-controls/Pages';
 
 interface MenuItem {
 	path: string;
@@ -297,6 +299,28 @@ export const MENU: MenuItem[] = [
 				path: '/react-advanced/11',
 				name: 'useStateRef',
 				element: <ReactAdvancedPages />,
+			},
+			{
+				path: '/react-advanced/12',
+				name: 'SSR & useLayoutEffect',
+				element: <ReactAdvancedPages />,
+			},
+		],
+	},
+	{
+		path: '/animation-controls',
+		name: 'Animation Controls',
+		children: [
+			{
+				path: '/animation-controls',
+				name: 'Animation Controls',
+				element: <AnimationControls />,
+				index: true,
+			},
+			{
+				path: '/animation-controls/1',
+				name: 'Motion Path',
+				element: <AnimationControlsPages />,
 			},
 		],
 	},

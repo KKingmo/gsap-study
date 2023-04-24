@@ -11,6 +11,7 @@ import ExitAnimations from '../../components/react-advanced/ExitAnimations';
 import ExitAnimationsAdvanced from '../../components/react-advanced/ExitAnimationsAdvanced';
 import UseGsapContext from '../../components/react-advanced/UseGsapContext';
 import UseStateRef from '../../components/react-advanced/UseStateRef';
+import SsrUseLayoutEffect from '../../components/react-advanced/SsrUseLayoutEffect';
 
 const Pages = () => {
 	const location = useLocation();
@@ -40,6 +41,8 @@ const Pages = () => {
 				return <UseGsapContext />;
 			case '11':
 				return <UseStateRef />;
+			case '12':
+				return <SsrUseLayoutEffect />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;
