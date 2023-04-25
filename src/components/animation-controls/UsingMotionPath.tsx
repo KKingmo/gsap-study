@@ -1,26 +1,54 @@
 import { Box, Button, Divider, Typography } from '@mui/material';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import PageLayout from '../../layout/PageLayout';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+import CodeBlock from '../common/CodeBlock';
 
-const CODESTRING = [``];
+const CODESTRING = [
+	`animation.pause()  // 애니메이션 일시정지 메서드 
+console.log(animation.paused()); // 애니메이션 일시정지 get/set 메서드 
+
+animation.progress(0.5).pause() //set  progress -> method chain  
+console.log(animation.progress()) // get
+
+animation.time(3); //sets time to 3 seconds
+animation.duration(1) // sets duration to 5 seconds
+animation.timeScale(2) //makes animation play 2x as fast
+animation.reversed(true) //set the reversed state`,
+];
 
 gsap.registerPlugin(MotionPathPlugin);
 
 const UsingMotionPath = () => {
 	const mapRef = useRef<HTMLDivElement>(null);
+	const [tigerTween, setTigerTween] = useState<gsap.core.Tween | null>();
+	const [isPaused, setIsPaused] = useState<boolean>(false);
 
 	useEffect(() => {
 		const ctx = gsap.context(() => {
-			gsap.to('#tiger', { motionPath: { path: '#route', align: '#tiger' }, duration: 5 });
+			const tween = gsap.to('#tiger', {
+				motionPath: { path: '#route', align: '#tiger' },
+				onComplete: () => {
+					setIsPaused(true);
+				},
+				duration: 5,
+			});
+			setTigerTween(tween);
 		}, mapRef);
+
 		return () => ctx.revert();
 	}, []);
-
+	console.log(tigerTween?.paused());
 	return (
 		<PageLayout>
 			<Typography variant='h1'>Motion Path</Typography>
+			<Typography variant='body2'>
+				{
+					'Getter-Setter 메서드를 사용하면 애니메이션에서 값을 가져오거나 값을 설정할 수 있습니다.\n- pause() / paused()\n- reversed()\n- timeScale()\n- time()\n- progress()\n\n애니메이션의 재생헤드가 3초의 시간으로 점프하도록 하려면 아래의 코드를 이용할 수 있습니다.\nmyAnimation.time(3)\n시간을 표시하려면 다음과 같이 사용할 수 있습니다.\ntime.innerHTML = myAnimation.time()'
+				}
+			</Typography>
+			<CodeBlock language={'tsx'} codeString={CODESTRING[0]} />
 			<Box ref={mapRef}>
 				<svg
 					width='800'
@@ -688,8 +716,22 @@ const UsingMotionPath = () => {
 						marginTop: '1rem',
 						justifyContent: 'center',
 					}}>
-					<Button type='button' id='button' variant='contained'>
-						pause
+					<Button
+						type='button'
+						id='button'
+						variant='contained'
+						onClick={() => {
+							if (!tigerTween) return;
+							setIsPaused((prev) => {
+								tigerTween.paused(!prev);
+								return !prev;
+							});
+
+							if (tigerTween.progress() === 1) {
+								tigerTween.restart();
+							}
+						}}>
+						{isPaused ? 'play' : 'pause'}
 					</Button>
 					<input
 						type='range'
@@ -701,6 +743,15 @@ const UsingMotionPath = () => {
 					/>
 					<Box id='progress'>0.00</Box>
 				</Box>
+			</Box>
+
+			<Box sx={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+				<Button variant='contained' onClick={() => tigerTween?.time(3)}>
+					{'animation.time(3)'}
+				</Button>
+				<Button variant='contained' onClick={() => tigerTween?.timeScale(3)}>
+					{'animation.timeScale(2)'}
+				</Button>
 			</Box>
 			<Divider flexItem />
 		</PageLayout>
