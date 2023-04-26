@@ -9,7 +9,7 @@ import BtnAniEffects from './pages/button-animation-effects';
 import FirstProject from './pages/first-project';
 import GsapKeyframes from './pages/gsap-keyframes';
 import ReactAdvanced from './pages/react-advanced';
-import AnimationControls from './pages/animation-controls';
+import GsapAdvanced from './pages/gsap-advanced';
 import ReactBasicsPages from './pages/react-basics/Pages';
 import BasicTweenPages from './pages/basic-tween/Pages';
 import TimelinesPages from './pages/timelines/Pages';
@@ -17,7 +17,7 @@ import BtnAniEffectsPages from './pages/button-animation-effects/Pages';
 import FirstProjectPages from './pages/first-project/Pages';
 import GsapKeyframesPages from './pages/gsap-keyframes/Pages';
 import ReactAdvancedPages from './pages/react-advanced/Pages';
-import AnimationControlsPages from './pages/animation-controls/Pages';
+import GsapAdvancedPages from './pages/gsap-advanced/Pages';
 
 interface MenuItem {
 	path: string;
@@ -308,19 +308,19 @@ export const MENU: MenuItem[] = [
 		],
 	},
 	{
-		path: '/animation-controls',
-		name: 'Animation Controls',
+		path: '/gsap-advanced',
+		name: 'GSAP Advanced',
 		children: [
 			{
-				path: '/animation-controls',
-				name: 'Animation Controls',
-				element: <AnimationControls />,
+				path: '/gsap-advanced',
+				name: 'GSAP Advanced',
+				element: <GsapAdvanced />,
 				index: true,
 			},
 			{
-				path: '/animation-controls/1',
+				path: '/gsap-advanced/1',
 				name: 'Motion Path',
-				element: <AnimationControlsPages />,
+				element: <GsapAdvancedPages />,
 			},
 		],
 	},

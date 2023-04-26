@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
-import UsingMotionPath from '../../components/animation-controls/UsingMotionPath';
+import UsingMotionPath from '../../components/gsap-advanced/UsingMotionPath';
 
 const Pages = () => {
 	const location = useLocation();

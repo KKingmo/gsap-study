@@ -24,11 +24,17 @@ const UsingMotionPath = () => {
 	const mapRef = useRef<HTMLDivElement>(null);
 	const [tigerTween, setTigerTween] = useState<gsap.core.Tween | null>();
 	const [isPaused, setIsPaused] = useState<boolean>(false);
+	const [tweenProgress, setTweenProgress] = useState<number | string>(0);
 
 	useEffect(() => {
 		const ctx = gsap.context(() => {
 			const tween = gsap.to('#tiger', {
 				motionPath: { path: '#route', align: '#tiger' },
+				// 애니메이션이 재생될 때 지속적으로 호출
+				onUpdate: () => {
+					setTweenProgress(tween.progress());
+				},
+				// 애니메이션이 끝나면 호출
 				onComplete: () => {
 					setIsPaused(true);
 				},
@@ -39,7 +45,14 @@ const UsingMotionPath = () => {
 
 		return () => ctx.revert();
 	}, []);
-	console.log(tigerTween?.paused());
+
+	const goToPath = (progress: number) => {
+		if (!tigerTween) return;
+		tigerTween.progress(progress);
+		tigerTween.pause();
+		setIsPaused(true);
+	};
+
 	return (
 		<PageLayout>
 			<Typography variant='h1'>Motion Path</Typography>
@@ -58,7 +71,7 @@ const UsingMotionPath = () => {
 					xmlns='http://www.w3.org/2000/svg'>
 					<g id='svg'>
 						<rect width='800' height='456' fill='#F7F7F7' />
-						<g id='company'>
+						<g id='company' onClick={() => goToPath(1)}>
 							<rect
 								width='60'
 								height='67'
@@ -151,7 +164,7 @@ const UsingMotionPath = () => {
 								strokeLinejoin='round'
 							/>
 						</g>
-						<g id='mountain'>
+						<g id='mountain' onClick={() => goToPath(0.23)}>
 							<rect
 								width='77'
 								height='47'
@@ -212,7 +225,7 @@ const UsingMotionPath = () => {
 								strokeLinejoin='round'
 							/>
 						</g>
-						<g id='home'>
+						<g id='home' onClick={() => goToPath(0)}>
 							<rect
 								width='63'
 								height='51'
@@ -305,7 +318,7 @@ const UsingMotionPath = () => {
 								strokeLinejoin='round'
 							/>
 						</g>
-						<g id='river'>
+						<g id='river' onClick={() => goToPath(0.47)}>
 							<rect
 								width='54.5'
 								height='63'
@@ -738,10 +751,11 @@ const UsingMotionPath = () => {
 						id='progressSlider'
 						min='0'
 						max='1'
-						value='0'
+						value={tweenProgress}
 						step='0.001'
+						onChange={(e) => tigerTween?.progress(parseFloat(e.target.value)).pause()}
 					/>
-					<Box id='progress'>0.00</Box>
+					<Box id='progress'>{tigerTween?.time().toFixed(2)}</Box>
 				</Box>
 			</Box>
 
