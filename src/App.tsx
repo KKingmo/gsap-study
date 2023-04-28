@@ -327,6 +327,11 @@ export const MENU: MenuItem[] = [
 				name: 'Practice Motion Path',
 				element: <GsapAdvancedPages />,
 			},
+			{
+				path: '/gsap-advanced/3',
+				name: '콜백처리',
+				element: <GsapAdvancedPages />,
+			},
 		],
 	},
 ];

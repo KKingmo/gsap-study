@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import UsingMotionPath from '../../components/gsap-advanced/UsingMotionPath';
 import PracticeMotionPath from '../../components/gsap-advanced/PracticeMotionPath';
+import HandlingCallback from '../../components/gsap-advanced/HandlingCallback';
 
 const Pages = () => {
 	const location = useLocation();
@@ -13,6 +14,8 @@ const Pages = () => {
 				return <UsingMotionPath />;
 			case '2':
 				return <PracticeMotionPath />;
+			case '3':
+				return <HandlingCallback />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;
