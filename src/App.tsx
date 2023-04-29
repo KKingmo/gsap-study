@@ -332,6 +332,11 @@ export const MENU: MenuItem[] = [
 				name: '콜백처리',
 				element: <GsapAdvancedPages />,
 			},
+			{
+				path: '/gsap-advanced/4',
+				name: '트윈 죽이기',
+				element: <GsapAdvancedPages />,
+			},
 		],
 	},
 ];

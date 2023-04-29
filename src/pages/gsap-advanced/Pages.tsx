@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import UsingMotionPath from '../../components/gsap-advanced/UsingMotionPath';
 import PracticeMotionPath from '../../components/gsap-advanced/PracticeMotionPath';
 import HandlingCallback from '../../components/gsap-advanced/HandlingCallback';
+import Killtween from '../../components/gsap-advanced/Killtween';
 
 const Pages = () => {
 	const location = useLocation();
@@ -16,6 +17,8 @@ const Pages = () => {
 				return <PracticeMotionPath />;
 			case '3':
 				return <HandlingCallback />;
+			case '4':
+				return <Killtween />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;

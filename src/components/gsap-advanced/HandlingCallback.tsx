@@ -1,8 +1,7 @@
-import { Box, Divider, Typography } from '@mui/material';
-import { useEffect, useRef, useState } from 'react';
+import { Box, Typography } from '@mui/material';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import PageLayout from '../../layout/PageLayout';
-import CodeBlock from '../common/CodeBlock';
 import AnimatedBox from '../common/AnimatedBox';
 
 const CODESTRING = [``];
@@ -46,7 +45,7 @@ const HandlingCallback = () => {
 			<Typography variant='h1'>콜백처리</Typography>
 			<Typography variant='body2' ref={h2Ref}>
 				{
-					'gsap 애니메이션에서 사용할 수 있는 콜백으로는 onComplete, onUpdate, onStart, onRepeat가 있습니다.'
+					'gsap 애니메이션에서 사용할 수 있는 콜백의 대표적인 예로는 onComplete, onUpdate, onStart, onRepeat가 있습니다.'
 				}
 			</Typography>
 			<Typography variant='h2' ref={h2Ref}>
