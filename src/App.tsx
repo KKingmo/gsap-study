@@ -337,6 +337,11 @@ export const MENU: MenuItem[] = [
 				name: '트윈 죽이기',
 				element: <GsapAdvancedPages />,
 			},
+			{
+				path: '/gsap-advanced/5',
+				name: '유틸 메서드 : gsap.utils.wrap()',
+				element: <GsapAdvancedPages />,
+			},
 		],
 	},
 ];
