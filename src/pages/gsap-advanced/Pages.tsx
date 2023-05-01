@@ -5,6 +5,7 @@ import PracticeMotionPath from '../../components/gsap-advanced/PracticeMotionPat
 import HandlingCallback from '../../components/gsap-advanced/HandlingCallback';
 import Killtween from '../../components/gsap-advanced/Killtween';
 import GsapUtilsWrap from '../../components/gsap-advanced/GsapUtilsWrap';
+import GsapRegisterEffect from '../../components/gsap-advanced/GsapRegisterEffect';
 
 const Pages = () => {
 	const location = useLocation();
@@ -22,6 +23,8 @@ const Pages = () => {
 				return <Killtween />;
 			case '5':
 				return <GsapUtilsWrap />;
+			case '6':
+				return <GsapRegisterEffect />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;
