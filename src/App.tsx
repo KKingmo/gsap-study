@@ -347,6 +347,11 @@ export const MENU: MenuItem[] = [
 				name: '유틸 메서드 : gsap.registerEffect()',
 				element: <GsapAdvancedPages />,
 			},
+			{
+				path: '/gsap-advanced/7',
+				name: 'CSS Plugin : clearProps',
+				element: <GsapAdvancedPages />,
+			},
 		],
 	},
 ];

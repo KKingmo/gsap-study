@@ -6,6 +6,7 @@ import HandlingCallback from '../../components/gsap-advanced/HandlingCallback';
 import Killtween from '../../components/gsap-advanced/Killtween';
 import GsapUtilsWrap from '../../components/gsap-advanced/GsapUtilsWrap';
 import GsapRegisterEffect from '../../components/gsap-advanced/GsapRegisterEffect';
+import CssClearProps from '../../components/gsap-advanced/CssClearProps';
 
 const Pages = () => {
 	const location = useLocation();
@@ -25,6 +26,8 @@ const Pages = () => {
 				return <GsapUtilsWrap />;
 			case '6':
 				return <GsapRegisterEffect />;
+			case '7':
+				return <CssClearProps />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;
