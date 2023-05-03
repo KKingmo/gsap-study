@@ -7,6 +7,7 @@ import Killtween from '../../components/gsap-advanced/Killtween';
 import GsapUtilsWrap from '../../components/gsap-advanced/GsapUtilsWrap';
 import GsapRegisterEffect from '../../components/gsap-advanced/GsapRegisterEffect';
 import CssClearProps from '../../components/gsap-advanced/CssClearProps';
+import ThreeDTransform from '../../components/gsap-advanced/ThreeDTransform';
 
 const Pages = () => {
 	const location = useLocation();
@@ -28,6 +29,8 @@ const Pages = () => {
 				return <GsapRegisterEffect />;
 			case '7':
 				return <CssClearProps />;
+			case '8':
+				return <ThreeDTransform />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;

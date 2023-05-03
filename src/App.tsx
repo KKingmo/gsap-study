@@ -352,6 +352,11 @@ export const MENU: MenuItem[] = [
 				name: 'CSS Plugin : clearProps',
 				element: <GsapAdvancedPages />,
 			},
+			{
+				path: '/gsap-advanced/8',
+				name: '3D Transform',
+				element: <GsapAdvancedPages />,
+			},
 		],
 	},
 ];
