@@ -1,5 +1,5 @@
 import { Box, Button, Divider, Typography } from '@mui/material';
-import { useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { gsap } from 'gsap';
 import PageLayout from '../../layout/PageLayout';
 import CodeBlock from '../common/CodeBlock';
@@ -13,7 +13,7 @@ const CODESTRING = [
       gsap.to('.box2', { transformPerspective: 600 });
       gsap.to('.box3', {
         transformPerspective: 600,
-        rotateY: 360,
+        rotationY: 360,
         duration: 8,
         ease: 'none',
         transformOrigin: '50% 50% -400',
@@ -78,7 +78,114 @@ const CODESTRING = [
 };
 
 export default ThreeDTransform;`,
+	`interface SplitTextIntoDivsProps {
+	text: string;
+	className?: string;
+}
+
+const SplitTextIntoDivs: FC<SplitTextIntoDivsProps> = (props) => {
+	const { text, className } = props;
+
+	const letters = text.split('').map((char, index) => {
+		return (
+			<Box className={className} key={index}>
+				{char === ' ' ? '\u00A0' : char}
+			</Box>
+		);
+	});
+
+	return <>{letters}</>;
+};
+
+gsap.registerEffect({
+	name: 'text3D',
+	extendTimeline: true,
+	defaults: {
+		deg: 360,
+	},
+	effect: (target: gsap.TweenTarget, config: { deg: number }) => {
+		const tl = gsap.timeline();
+		tl.to(target, {
+			duration: 1.2,
+			rotationY: config.deg,
+			ease: 'back(3)',
+			stagger: { amount: 1 },
+			repeat: -1,
+		});
+
+		return tl;
+	},
+});
+
+const ThreeDTransform = () => {
+	useEffect(() => {
+		const ctx = gsap.context(() => {
+			const animation = gsap.timeline();
+			animation.text3D('.chars');
+		});
+
+		return () => {
+			ctx.revert(); // <- Cleanup!
+		};
+	}, []);
+
+	return (
+		<PageLayout>
+			<Box
+				sx={{
+					display: 'flex',
+					width: '100%',
+					justifyContent: 'center',
+					fontSize: '2rem',
+					fontWeight: 'bold',
+				}}>
+				<SplitTextIntoDivs className='chars' text={'GSAP Method registerEffect'} />
+			</Box>
+		</PageLayout>
+	);
+};
+
+export default ThreeDTransform;`,
 ];
+
+interface SplitTextIntoDivsProps {
+	text: string;
+	className?: string;
+}
+
+const SplitTextIntoDivs: FC<SplitTextIntoDivsProps> = (props) => {
+	const { text, className } = props;
+
+	const letters = text.split('').map((char, index) => {
+		return (
+			<Box className={className} key={index}>
+				{char === ' ' ? '\u00A0' : char}
+			</Box>
+		);
+	});
+
+	return <>{letters}</>;
+};
+
+gsap.registerEffect({
+	name: 'text3D',
+	extendTimeline: true,
+	defaults: {
+		deg: 360,
+	},
+	effect: (target: gsap.TweenTarget, config: { deg: number }) => {
+		const tl = gsap.timeline();
+		tl.to(target, {
+			duration: 1.2,
+			rotationY: config.deg,
+			ease: 'back(3)',
+			stagger: { amount: 1 },
+			repeat: -1,
+		});
+
+		return tl;
+	},
+});
 
 const ThreeDTransform = () => {
 	useEffect(() => {
@@ -87,12 +194,14 @@ const ThreeDTransform = () => {
 			gsap.to('.box2', { transformPerspective: 600 });
 			gsap.to('.box3', {
 				transformPerspective: 600,
-				rotateY: 360,
+				rotationY: 360,
 				duration: 8,
 				ease: 'none',
 				transformOrigin: '50% 50% -400',
 				repeat: -1,
 			});
+			const animation = gsap.timeline();
+			animation.text3D('.chars');
 		});
 
 		return () => {
@@ -182,6 +291,22 @@ const ThreeDTransform = () => {
 			</Box>
 			<CodeBlock language='tsx' codeString={CODESTRING[0]} title={'구현 의사코드'} />
 			<Divider flexItem />
+
+			<Typography variant='h2'>{'3D Transform Text 만들기'}</Typography>
+			<Typography variant='body2'>
+				{'gsap.registerEffect()를 이용해 한번 만들어 봅시다.'}
+			</Typography>
+			<Box
+				sx={{
+					display: 'flex',
+					width: '100%',
+					justifyContent: 'center',
+					fontSize: '2rem',
+					fontWeight: 'bold',
+				}}>
+				<SplitTextIntoDivs className='chars' text={'GSAP Method registerEffect'} />
+			</Box>
+			<CodeBlock language='tsx' codeString={CODESTRING[1]} title={'구현 의사코드'} />
 		</PageLayout>
 	);
 };
