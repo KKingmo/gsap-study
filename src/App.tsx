@@ -357,6 +357,11 @@ export const MENU: MenuItem[] = [
 				name: '3D Transform',
 				element: <GsapAdvancedPages />,
 			},
+			{
+				path: '/gsap-advanced/9',
+				name: '런타임 랜더링',
+				element: <GsapAdvancedPages />,
+			},
 		],
 	},
 ];

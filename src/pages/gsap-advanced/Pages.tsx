@@ -8,6 +8,7 @@ import GsapUtilsWrap from '../../components/gsap-advanced/GsapUtilsWrap';
 import GsapRegisterEffect from '../../components/gsap-advanced/GsapRegisterEffect';
 import CssClearProps from '../../components/gsap-advanced/CssClearProps';
 import ThreeDTransform from '../../components/gsap-advanced/ThreeDTransform';
+import RuntimeRendering from '../../components/gsap-advanced/RuntimeRendering';
 
 const Pages = () => {
 	const location = useLocation();
@@ -31,6 +32,8 @@ const Pages = () => {
 				return <CssClearProps />;
 			case '8':
 				return <ThreeDTransform />;
+			case '9':
+				return <RuntimeRendering />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;

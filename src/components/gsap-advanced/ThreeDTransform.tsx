@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Typography } from '@mui/material';
+import { Box, Divider, Typography } from '@mui/material';
 import { FC, useEffect } from 'react';
 import { gsap } from 'gsap';
 import PageLayout from '../../layout/PageLayout';
