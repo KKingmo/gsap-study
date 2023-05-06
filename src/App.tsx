@@ -362,6 +362,11 @@ export const MENU: MenuItem[] = [
 				name: '런타임 랜더링',
 				element: <GsapAdvancedPages />,
 			},
+			{
+				path: '/gsap-advanced/10',
+				name: '함수 기반의 애니메이션',
+				element: <GsapAdvancedPages />,
+			},
 		],
 	},
 ];

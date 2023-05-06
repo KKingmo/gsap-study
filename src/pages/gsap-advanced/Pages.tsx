@@ -9,6 +9,7 @@ import GsapRegisterEffect from '../../components/gsap-advanced/GsapRegisterEffec
 import CssClearProps from '../../components/gsap-advanced/CssClearProps';
 import ThreeDTransform from '../../components/gsap-advanced/ThreeDTransform';
 import RuntimeRendering from '../../components/gsap-advanced/RuntimeRendering';
+import FunctionBased from '../../components/gsap-advanced/FunctionBased';
 
 const Pages = () => {
 	const location = useLocation();
@@ -34,6 +35,8 @@ const Pages = () => {
 				return <ThreeDTransform />;
 			case '9':
 				return <RuntimeRendering />;
+			case '10':
+				return <FunctionBased />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;
