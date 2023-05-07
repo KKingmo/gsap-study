@@ -10,6 +10,7 @@ import CssClearProps from '../../components/gsap-advanced/CssClearProps';
 import ThreeDTransform from '../../components/gsap-advanced/ThreeDTransform';
 import RuntimeRendering from '../../components/gsap-advanced/RuntimeRendering';
 import FunctionBased from '../../components/gsap-advanced/FunctionBased';
+import AccelerationBasedStagger from '../../components/gsap-advanced/AccelerationBasedStagger';
 
 const Pages = () => {
 	const location = useLocation();
@@ -37,6 +38,8 @@ const Pages = () => {
 				return <RuntimeRendering />;
 			case '10':
 				return <FunctionBased />;
+			case '11':
+				return <AccelerationBasedStagger />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;

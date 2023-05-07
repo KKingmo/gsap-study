@@ -367,6 +367,11 @@ export const MENU: MenuItem[] = [
 				name: '함수 기반의 애니메이션',
 				element: <GsapAdvancedPages />,
 			},
+			{
+				path: '/gsap-advanced/11',
+				name: '가속도 기반의 Stagger',
+				element: <GsapAdvancedPages />,
+			},
 		],
 	},
 ];
