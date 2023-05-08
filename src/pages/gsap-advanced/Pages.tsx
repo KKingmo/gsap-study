@@ -11,6 +11,7 @@ import ThreeDTransform from '../../components/gsap-advanced/ThreeDTransform';
 import RuntimeRendering from '../../components/gsap-advanced/RuntimeRendering';
 import FunctionBased from '../../components/gsap-advanced/FunctionBased';
 import AccelerationBasedStagger from '../../components/gsap-advanced/AccelerationBasedStagger';
+import GsapUtilsDistribute from '../../components/gsap-advanced/GsapUtilsDistribute';
 
 const Pages = () => {
 	const location = useLocation();
@@ -40,6 +41,8 @@ const Pages = () => {
 				return <FunctionBased />;
 			case '11':
 				return <AccelerationBasedStagger />;
+			case '12':
+				return <GsapUtilsDistribute />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;

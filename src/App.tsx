@@ -372,6 +372,11 @@ export const MENU: MenuItem[] = [
 				name: '가속도 기반의 Stagger',
 				element: <GsapAdvancedPages />,
 			},
+			{
+				path: '/gsap-advanced/12',
+				name: 'gsap.utils.distribute()',
+				element: <GsapAdvancedPages />,
+			},
 		],
 	},
 ];
