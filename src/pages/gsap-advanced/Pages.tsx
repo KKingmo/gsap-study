@@ -12,6 +12,7 @@ import RuntimeRendering from '../../components/gsap-advanced/RuntimeRendering';
 import FunctionBased from '../../components/gsap-advanced/FunctionBased';
 import AccelerationBasedStagger from '../../components/gsap-advanced/AccelerationBasedStagger';
 import GsapUtilsDistribute from '../../components/gsap-advanced/GsapUtilsDistribute';
+import AnimatingValueDistribution from '../../components/gsap-advanced/AnimatingValueDistribution';
 
 const Pages = () => {
 	const location = useLocation();
@@ -43,6 +44,8 @@ const Pages = () => {
 				return <AccelerationBasedStagger />;
 			case '12':
 				return <GsapUtilsDistribute />;
+			case '13':
+				return <AnimatingValueDistribution />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;

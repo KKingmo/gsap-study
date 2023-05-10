@@ -377,6 +377,11 @@ export const MENU: MenuItem[] = [
 				name: 'gsap.utils.distribute()',
 				element: <GsapAdvancedPages />,
 			},
+			{
+				path: '/gsap-advanced/13',
+				name: '값 분배를 통한 애니메이션',
+				element: <GsapAdvancedPages />,
+			},
 		],
 	},
 ];
