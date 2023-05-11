@@ -382,6 +382,11 @@ export const MENU: MenuItem[] = [
 				name: '값 분배를 통한 애니메이션',
 				element: <GsapAdvancedPages />,
 			},
+			{
+				path: '/gsap-advanced/14',
+				name: '3D 텍스트 효과',
+				element: <GsapAdvancedPages />,
+			},
 		],
 	},
 ];
