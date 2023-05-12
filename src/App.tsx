@@ -387,6 +387,11 @@ export const MENU: MenuItem[] = [
 				name: '3D 텍스트 효과',
 				element: <GsapAdvancedPages />,
 			},
+			{
+				path: '/gsap-advanced/15',
+				name: 'Stagger의 반복 설정',
+				element: <GsapAdvancedPages />,
+			},
 		],
 	},
 ];

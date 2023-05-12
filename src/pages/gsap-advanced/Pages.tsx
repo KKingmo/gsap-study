@@ -14,6 +14,7 @@ import AccelerationBasedStagger from '../../components/gsap-advanced/Acceleratio
 import GsapUtilsDistribute from '../../components/gsap-advanced/GsapUtilsDistribute';
 import AnimatingValueDistribution from '../../components/gsap-advanced/AnimatingValueDistribution';
 import ThreeDTextEffect from '../../components/gsap-advanced/ThreeDTextEffect';
+import StaggerRepeatSetting from '../../components/gsap-advanced/StaggerRepeatSetting';
 
 const Pages = () => {
 	const location = useLocation();
@@ -49,6 +50,8 @@ const Pages = () => {
 				return <AnimatingValueDistribution />;
 			case '14':
 				return <ThreeDTextEffect />;
+			case '15':
+				return <StaggerRepeatSetting />;
 		}
 	}, [location.pathname]);
 	return <>{renderComponent()}</>;
